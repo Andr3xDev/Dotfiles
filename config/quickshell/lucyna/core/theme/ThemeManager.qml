@@ -3,7 +3,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import "./tokens" as Tokens
-import "./themes" as ThemeVariants
+import "./palettes" as ThemeVariants
 
 /*!
     ThemeManager — Singleton facade for the design token system.
@@ -39,7 +39,7 @@ QtObject {
 
     // ── Persistence ───────────────────────────────────────
     readonly property string _dataFilePath:
-        Quickshell.env("HOME") + "/.config/quickshell/lucyna/core/theme/data/theme.json"
+        Quickshell.shellDir + "/core/theme/data/theme.json"
 
     readonly property string _loadScript:
         "import sys,json,pathlib; p=pathlib.Path(sys.argv[1]); d={'theme':'abysal-obsidian'};\n" +
@@ -102,40 +102,27 @@ QtObject {
 
     // ── Palette resolution ────────────────────────────────
     readonly property var _palettes: ({
-        "abysal-obsidian": ThemeVariants.AbyssalDark,
-        "abysal-marble":   ThemeVariants.AbyssalLight
+        "abysal-obsidian": ThemeVariants.AbysalObsidian,
+        "abysal-marble":   ThemeVariants.AbysalMarble
     })
 
     readonly property var _activePalette: _palettes[currentTheme] ?? _palettes["abysal-obsidian"]
 
-    // ── Color tokens (dynamic — inline bindings to _activePalette) ─
+    // ── Color tokens (dynamic — group-level passthrough to _activePalette) ─
     readonly property QtObject colors: QtObject {
-        readonly property QtObject surface: QtObject {
-            readonly property color primary:   themeManager._activePalette.base
-            readonly property color secondary: themeManager._activePalette.surface
-            readonly property color overlay:   themeManager._activePalette.highlight1
-        }
-        readonly property QtObject on: QtObject {
-            readonly property color surface:      themeManager._activePalette.text
-            readonly property color surfaceMuted: themeManager._activePalette.color8
-        }
-        readonly property QtObject accent: QtObject {
-            readonly property color primary:   themeManager._activePalette.color1
-            readonly property color secondary: themeManager._activePalette.color2
-            readonly property color tertiary:  themeManager._activePalette.color5
-        }
-        readonly property QtObject status: QtObject {
-            readonly property color error:   themeManager._activePalette.color4
-            readonly property color warning: themeManager._activePalette.color3
-            readonly property color success: themeManager._activePalette.color1
-        }
-        readonly property QtObject highlight: QtObject {
-            readonly property color subtle: themeManager._activePalette.highlight1
-            readonly property color medium: themeManager._activePalette.highlight2
-            readonly property color strong: themeManager._activePalette.highlight3
-        }
-        readonly property color border:     themeManager._activePalette.color9
-        readonly property real  barOpacity: themeManager._activePalette.barOpacity
+        readonly property QtObject surface:   themeManager._activePalette.surface
+        readonly property QtObject on:        themeManager._activePalette.on
+        readonly property color    accent:    themeManager._activePalette.accent
+        readonly property QtObject status:    themeManager._activePalette.status
+        readonly property QtObject highlight: themeManager._activePalette.highlight
+        readonly property color    border:         themeManager._activePalette.border
+        readonly property color    borderSubtle:   themeManager._activePalette.borderSubtle
+        readonly property color    borderStrong:   themeManager._activePalette.borderStrong
+        readonly property color    borderEmphasis: themeManager._activePalette.borderEmphasis
+        readonly property color    accentMuted:    themeManager._activePalette.accentMuted
+        readonly property color    detail:         themeManager._activePalette.detail
+        readonly property color    detailSecondary: themeManager._activePalette.detailSecondary
+        readonly property real     barOpacity: themeManager._activePalette.barOpacity
     }
 
     // ── Static token API (delegated — single source of truth in each file) ─
@@ -160,5 +147,9 @@ QtObject {
     function getThemeDisplayName(themeName) {
         const p = _palettes[themeName]
         return p ? p.name : themeName
+    }
+
+    function alpha(baseColor, alphaValue) {
+        return Qt.rgba(baseColor.r, baseColor.g, baseColor.b, alphaValue)
     }
 }

@@ -53,7 +53,7 @@ esac
 ~/.config/starship/theme.sh ${THEME}
 
 # swww
-~/.config/swww/theme.sh ${THEME}
+~/.config/awww/theme.sh ${THEME}
 
 # Kotofetch
 ~/.config/kotofetch/theme.sh ${THEME}

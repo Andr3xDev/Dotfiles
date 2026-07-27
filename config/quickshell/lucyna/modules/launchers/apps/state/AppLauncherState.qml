@@ -23,7 +23,7 @@ Singleton {
     property var    lastUsed:         ({})
     property string _pendingSaveJson: ""
 
-    readonly property string _dataFilePath: Quickshell.env("HOME") + "/.config/quickshell/lucyna/modules/launchers/apps/data/applauncher.json"
+    readonly property string _dataFilePath: Quickshell.shellDir + "/modules/launchers/apps/data/applauncher.json"
 
     // Inline Python scripts keep the dependency footprint minimal
     readonly property string _loadScript:

@@ -2,43 +2,20 @@
 --- Botton bar config show everytime
 ---------------------------------------------------------------------------
 
-local abyssal = require("palettes.abysal")
-
--- definition of palette for lualine, using the abyssal theme
-local function get_abyssal_theme()
-  local p = abyssal.get_palette()
-
-  return {
-    normal = {
-      a = { bg = p.color1, fg = p.base, gui = "bold" },
-      b = { bg = p.surface, fg = p.text },
-      c = { bg = p.base, fg = p.text },
-      x = { bg = p.base, fg = p.text },
-      y = { bg = p.surface, fg = p.text },
-      z = { bg = p.color1, fg = p.base, gui = "bold" },
-    },
-    insert = {
-      a = { bg = p.color2, fg = p.base, gui = "bold" },
-    },
-    visual = {
-      a = { bg = p.color4, fg = p.base, gui = "bold" },
-    },
-    command = {
-      a = { bg = p.color3, fg = p.base, gui = "bold" },
-    },
-    inactive = {
-      a = { bg = p.surface, fg = p.base, gui = "bold" },
-    },
-  }
+-- resolve the current abysal palette live (style follows vim.o.background, e.g. gnome_theme_sync)
+local function current_colors()
+  return require("abysal").colors()
 end
 
 -- helper function to create a separator component for lualine
-local function separator(icon, color_fg)
+local function separator(icon, color_key)
   return {
     function()
       return icon
     end,
-    color = { fg = color_fg },
+    color = function()
+      return { fg = current_colors()[color_key] }
+    end,
     padding = { left = 0, right = 0 },
   }
 end
@@ -104,12 +81,10 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
-      local p = abyssal.get_palette()
-
       return {
         options = {
           icons_enabled = true,
-          theme = get_abyssal_theme(),
+          theme = "abysal",
           component_separators = "",
           section_separators = "",
           disabled_filetypes = {
@@ -129,7 +104,7 @@ return {
         sections = {
           lualine_a = {
             "mode",
-            separator("", p.surface),
+            separator("", "bg_elevated"),
           },
           lualine_b = {
             {
@@ -141,16 +116,20 @@ return {
                 newfile = "󰐙 ",
               },
             },
-            separator("", p.base),
+            separator("", "bg"),
           },
           lualine_c = {
             {
               get_branch_with_icon,
-              color = { fg = p.text },
+              color = function()
+                return { fg = current_colors().fg }
+              end,
             },
             {
               get_git_diff,
-              color = { fg = p.color2 },
+              color = function()
+                return { fg = current_colors().amber }
+              end,
             },
           },
           lualine_x = {
@@ -158,19 +137,25 @@ return {
               "diagnostics",
               sources = { "nvim_diagnostic" },
               symbols = { error = "󰅚 ", warn = "󱡞 ", info = "󰗖 " },
-              diagnostics_color = {
-                error = { fg = p.color4 },
-                warn = { fg = p.color3 },
-                info = { fg = p.color1 },
-              },
+              -- ponytail: diagnostics_color entries only documented as static
+              -- highlight_group_name|table, not function; stays frozen at
+              -- startup style until lualine adds function support here
+              diagnostics_color = (function()
+                local colors = current_colors()
+                return {
+                  error = { fg = colors.red },
+                  warn = { fg = colors.amber },
+                  info = { fg = colors.primary },
+                }
+              end)(),
             },
           },
           lualine_y = {
-            separator("", p.base),
+            separator("", "bg"),
             "filetype",
           },
           lualine_z = {
-            separator("", p.surface),
+            separator("", "bg_elevated"),
             "location",
           },
         },

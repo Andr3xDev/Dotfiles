@@ -26,7 +26,7 @@ Rectangle {
 
     color: {
         switch (colorRole) {
-            case "accent": return Theme.ThemeManager.colors.accent.primary
+            case "accent": return Theme.ThemeManager.colors.accent
             case "muted":  return Theme.ThemeManager.colors.on.surfaceMuted
             default:       return Theme.ThemeManager.colors.border
         }

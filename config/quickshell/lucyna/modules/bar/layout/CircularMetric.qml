@@ -17,7 +17,7 @@ Item {
     property real lineWidth: 2
     readonly property color effectiveColor: value >= 75
         ? Theme.ThemeManager.colors.status.error  // critical
-        : Theme.ThemeManager.colors.accent.primary  // normal
+        : Theme.ThemeManager.colors.accent  // normal
 
     // Circle with progress
     Canvas {

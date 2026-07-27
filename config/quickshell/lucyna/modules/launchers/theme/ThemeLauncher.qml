@@ -47,7 +47,7 @@ PanelWindow {
         anchors.bottomMargin: 50
         color: Theme.ThemeManager.colors.surface.secondary
         radius: Theme.ThemeManager.radius.none
-        border.color: Theme.ThemeManager.colors.accent.primary
+        border.color: Theme.ThemeManager.colors.borderStrong
         border.width: 1
 
         implicitHeight: contentColumn.implicitHeight + 32
@@ -70,7 +70,7 @@ PanelWindow {
 
                 Text {
                     text: "󰔎"
-                    color: Theme.ThemeManager.colors.border
+                    color: Theme.ThemeManager.colors.on.surfaceMuted
                     font.pixelSize: Theme.ThemeManager.typography.size.xl
                     font.family: Theme.ThemeManager.typography.family.icons
                 }
@@ -90,13 +90,13 @@ PanelWindow {
                     height: 20
                     radius: 2
                     color: closeMouseArea.containsMouse
-                        ? Theme.ThemeManager.colors.accent.primary
+                        ? Theme.ThemeManager.colors.accent
                         : "transparent"
 
                     Text {
                         anchors.centerIn: parent
                         text: "󰅖"
-                        color: Theme.ThemeManager.colors.accent.secondary
+                        color: Theme.ThemeManager.colors.accent
                         font.pixelSize: Theme.ThemeManager.typography.size.sm
                         font.family: Theme.ThemeManager.typography.family.icons
                     }
@@ -115,7 +115,7 @@ PanelWindow {
             Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 1
-                color: Theme.ThemeManager.colors.accent.primary
+                color: Theme.ThemeManager.colors.borderSubtle
             }
 
             // Theme list

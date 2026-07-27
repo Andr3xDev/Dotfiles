@@ -24,18 +24,8 @@ PanelWindow {
 
     Rectangle {
         anchors.fill: parent
-        border.color: Qt.rgba(
-            Theme.ThemeManager.colors.surface.secondary.r,
-            Theme.ThemeManager.colors.surface.secondary.g,
-            Theme.ThemeManager.colors.surface.secondary.b,
-            0.8
-        )
-        color: Qt.rgba(
-            Theme.ThemeManager.colors.surface.primary.r,
-            Theme.ThemeManager.colors.surface.primary.g,
-            Theme.ThemeManager.colors.surface.primary.b,
-            Theme.ThemeManager.colors.barOpacity
-        )
+        border.color: Theme.ThemeManager.alpha(Theme.ThemeManager.colors.borderSubtle, 0.8)
+        color: Theme.ThemeManager.alpha(Theme.ThemeManager.colors.surface.primary, Theme.ThemeManager.colors.barOpacity)
         radius: Theme.ThemeManager.radius.md
         border.width: 2
     }
@@ -55,7 +45,7 @@ PanelWindow {
             anchors.fill: parent
             spacing: Theme.ThemeManager.spacing.sm
 
-            Item { Layout.preferredWidth: 4 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.xs }
 
             ArchLogo {}
 
@@ -68,13 +58,17 @@ PanelWindow {
                 radius: Theme.ThemeManager.radius.full
             }
 
-            Item { Layout.preferredWidth: 6 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.sm }
 
             Workspaces {
                 screen: bar.screen
             }
 
-            Item { Layout.preferredWidth: 10 }
+            // ponytail: fillWidth claims leftSection's reserved xxl surplus deterministically —
+            // without it, Qt's RowLayout redistributes unclaimed surplus proportionally across
+            // ALL cells (incl. ArchLogo/separator before Workspaces), shifting them a few px
+            // whenever Workspaces' preferred width changes (new workspace pill appears)
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.sm; Layout.fillWidth: true }
         }
     }
 
@@ -105,14 +99,14 @@ PanelWindow {
             top: parent.top
             bottom: parent.bottom
         }
-        width: rightContent.implicitWidth + 2
+        width: rightContent.implicitWidth + 2  // ponytail: fine-tuned pixel offset, not layout spacing — distinct from left/center sections' spacing.xxl padding
 
         RowLayout {
             id: rightContent
-            anchors { fill: parent; rightMargin: 1 }
+            anchors { fill: parent; rightMargin: 1 }  // ponytail: fine-tuned pixel offset, same reasoning as rightSection's +2 above
             spacing: Theme.ThemeManager.spacing.sm
 
-            Item { Layout.preferredWidth: 4 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.xs }
 
             PowerProfile {
                 id: powerProfile
@@ -124,7 +118,7 @@ PanelWindow {
                 icon: "󱐋"
             }
 
-            Item { Layout.preferredWidth: 4 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.xs }
 
             SystemControls {
                 id: systemControls
@@ -136,7 +130,7 @@ PanelWindow {
                 icon: "󰒓"
             }
 
-            Item { Layout.preferredWidth: 4 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.xs }
 
             SystemTemperatures {
                 id: systemTemperatures
@@ -148,7 +142,7 @@ PanelWindow {
                 icon: "󰔏"
             }
 
-            Item { Layout.preferredWidth: 4 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.xs }
 
             SystemMetrics {
                 id: systemMetrics
@@ -160,13 +154,18 @@ PanelWindow {
                 icon: "󰕮"
             }
 
-            Item { Layout.preferredWidth: 4 }
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.xs }
 
             Battery {
                 id: batteryWidget
             }
 
-            Item { Layout.preferredWidth: 10 }
+            // ponytail: fillWidth claims rightContent's unclaimed 1px surplus
+            // (rightSection.width = implicitWidth + 2, rightMargin 1 -> rightContent.width
+            // = implicitWidth + 1) deterministically — without it, Qt's RowLayout redistributes
+            // that surplus proportionally across ALL cells (incl. ones after an expanding
+            // ExpandableRow that should net to zero shift), same mechanism as leftContent (obs #127)
+            Item { Layout.preferredWidth: Theme.ThemeManager.spacing.sm; Layout.fillWidth: true }
         }
     }
 }

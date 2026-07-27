@@ -1,155 +1,155 @@
 #--------------------------------------------------------------------------------
 #             _______
-#　　　　　 /  ＞　　フ     
+#　　　　　 /  ＞　　フ
 #　　　　　| 　_　 _ l      THEME: abysal-obsidian
-#　 　　　／` ミ＿xノ               
+#　 　　　／` ミ＿xノ
 #　　 　 /　　　 　 |
 #　　　 /　 ヽ　　 ﾉ
 #　 　 │　　|　|　|         AUTHOR:  Andr3xDev
 #　／￣|　　 |　|　|        URL: https://github.com/Andr3xDev/HyprPharch
 #　| (￣ヽ＿_ヽ_)__)
 #　＼二つ
-#   
+#
 #--------------------------------------------------------------------------------
 
 
 [app]
-overall = { bg = "#1c1c1c" }
+overall = { bg = "#0E161A" }
 
 [mgr]
-cwd = { fg = "#52c9b0" }
+cwd = { fg = "#2DD4BF" }
 
-find_keyword = { fg = "#52c9b0", bold = true, italic = true, underline = true }
-find_position = { fg = "#b87bce", bg = "reset", bold = true, italic = true }
+find_keyword = { fg = "#2DD4BF", bold = true, italic = true, underline = true }
+find_position = { fg = "#AB8AB7", bg = "reset", bold = true, italic = true }
 
 symlink_target = { italic = true }
 
-marker_copied = { fg = "#6b92e3", bg = "#6b92e3" }
-marker_cut = { fg = "#d47779", bg = "#d47779" }
-marker_marked = { fg = "#e28e5a", bg = "#e28e5a" }
-marker_selected = { fg = "#d1b171", bg = "#d1b171" }
+marker_copied = { fg = "#D9973A", bg = "#D9973A" }
+marker_cut = { fg = "#FF8352", bg = "#FF8352" }
+marker_marked = { fg = "#6EB99A", bg = "#6EB99A" }
+marker_selected = { fg = "#6EB99A", bg = "#6EB99A" }
 
-count_copied = { fg = "#1c1c1c", bg = "#6b92e3" }
-count_cut = { fg = "#1c1c1c", bg = "#d47779" }
-count_selected = { fg = "#1c1c1c", bg = "#52c9b0" }
+count_copied = { fg = "#0C1214", bg = "#D9973A" }
+count_cut = { fg = "#0C1214", bg = "#FF8352" }
+count_selected = { fg = "#0C1214", bg = "#2DD4BF" }
 
 border_symbol = "│"
-border_style = { fg = "#2e2e2e" }
+border_style = { fg = "#1D2C34" }
 
 syntect_theme = ""
 
 [indicator]
 padding = { open = "█", close = "█" }
-parent = { fg = "#d4d4d4", bg = "#454545" }
-current = { fg = "#1c1c1c", bg = "#52c9b0" }
-preview = { fg = "#d4d4d4", bg = "#454545" }
+parent = { fg = "#E3E9EB", bg = "#324A54" }
+current = { fg = "#0C1214", bg = "#2DD4BF" }
+preview = { fg = "#E3E9EB", bg = "#324A54" }
 
 [tabs]
-active = { fg = "#1c1c1c", bg = "#52c9b0", bold = true }
-inactive = { fg = "#8c8c8c", bg = "#2e2e2e" }
+active = { fg = "#0C1214", bg = "#2DD4BF", bold = true }
+inactive = { fg = "#7A8B8E", bg = "#1D2C34" }
 
 sep_inner = { open = "", close = "" }
 sep_outer = { open = "█", close = "" }
 
 [mode]
-normal_main = { fg = "#1c1c1c", bg = "#52c9b0", bold = true }
-normal_alt = { fg = "#d4d4d4", bg = "#333333", bold = true }
+normal_main = { fg = "#0C1214", bg = "#2DD4BF", bold = true }
+normal_alt = { fg = "#E3E9EB", bg = "#152025", bold = true }
 
-select_main = { fg = "#1c1c1c", bg = "#d1b171", bold = true }
-select_alt = { fg = "#d4d4d4", bg = "#333333", bold = true }
+select_main = { fg = "#0C1214", bg = "#6EB99A", bold = true }
+select_alt = { fg = "#E3E9EB", bg = "#152025", bold = true }
 
-unset_main = { fg = "#1c1c1c", bg = "#d47779", bold = true }
-unset_alt = { fg = "#d4d4d4", bg = "#333333", bold = true }
+unset_main = { fg = "#0C1214", bg = "#FF6369", bold = true }
+unset_alt = { fg = "#E3E9EB", bg = "#152025", bold = true }
 
 [status]
-overall = { bg = "#1c1c1c" }
+overall = { bg = "#0E161A" }
 sep_left = { open = "█", close = "" }
 sep_right = { open = "", close = "█" }
 
-perm_sep = { fg = "#737373" }
-perm_type = { fg = "#b87bce" }
-perm_read = { fg = "#52c9b0" }
-perm_write = { fg = "#d47779" }
-perm_exec = { fg = "#e28e5a" }
+perm_sep = { fg = "#5B6E72" }
+perm_type = { fg = "#D9973A" }
+perm_read = { fg = "#2DD4BF" }
+perm_write = { fg = "#FF6369" }
+perm_exec = { fg = "#D9973A" }
 
-progress_label = { fg = "#d4d4d4", bold = true }
-progress_normal = { fg = "#52c9b0", bg = "#1c1c1c" }
-progress_error = { fg = "#d47779", bg = "#1c1c1c" }
+progress_label = { fg = "#E3E9EB", bold = true }
+progress_normal = { fg = "#2DD4BF", bg = "#0E161A" }
+progress_error = { fg = "#FF6369", bg = "#0E161A" }
 
 [which]
 cols = 3
-mask = { bg = "#1c1c1c" }
-cand = { fg = "#52c9b0" }
-rest = { fg = "#737373" }
-desc = { fg = "#e28e5a" }
+mask = { bg = "#0E161A" }
+cand = { fg = "#2DD4BF" }
+rest = { fg = "#5B6E72" }
+desc = { fg = "#D9973A" }
 separator = "  "
-separator_style = { fg = "#737373" }
+separator_style = { fg = "#5B6E72" }
 
 [confirm]
-border = { fg = "#52c9b0" }
-title = { fg = "#d47779", bold = true }
-body = { fg = "#d4d4d4" }
-list = { fg = "#d4d4d4" }
-btn_yes = { fg = "#1c1c1c", bg = "#52c9b0", bold = true }
-btn_no = { fg = "#d4d4d4", bg = "#333333", bold = true }
+border = { fg = "#2DD4BF" }
+title = { fg = "#FF6369", bold = true }
+body = { fg = "#E3E9EB" }
+list = { fg = "#E3E9EB" }
+btn_yes = { fg = "#0C1214", bg = "#2DD4BF", bold = true }
+btn_no = { fg = "#E3E9EB", bg = "#152025", bold = true }
 btn_labels = ["  [y]es  ", "  (n)o  "]
 
 [spot]
-border = { fg = "#52c9b0" }
-title = { fg = "#52c9b0", bold = true }
+border = { fg = "#2DD4BF" }
+title = { fg = "#2DD4BF", bold = true }
 
-tbl_col = { fg = "#52c9b0" }
-tbl_cell = { fg = "#1c1c1c", bg = "#52c9b0", bold = true }
+tbl_col = { fg = "#2DD4BF" }
+tbl_cell = { fg = "#0C1214", bg = "#2DD4BF", bold = true }
 
 [notify]
-title_info = { fg = "#52c9b0" }
-title_warn = { fg = "#d1b171" }
-title_error = { fg = "#d47779" }
+title_info = { fg = "#2DD4BF" }
+title_warn = { fg = "#D9973A" }
+title_error = { fg = "#FF6369" }
 
 [pick]
-border = { fg = "#52c9b0" }
-active = { fg = "#52c9b0", bold = true }
-inactive = { fg = "#8c8c8c" }
+border = { fg = "#2DD4BF" }
+active = { fg = "#2DD4BF", bold = true }
+inactive = { fg = "#7A8B8E" }
 
 [input]
-border = { fg = "#52c9b0" }
-title = { fg = "#52c9b0", bold = true }
-value = { fg = "#d4d4d4" }
+border = { fg = "#2DD4BF" }
+title = { fg = "#2DD4BF", bold = true }
+value = { fg = "#E3E9EB" }
 selected = { reversed = true }
 
 [cmp]
-border = { fg = "#52c9b0" }
-active = { bg = "#333333", fg = "#52c9b0", bold = true }
-inactive = { fg = "#8c8c8c" }
+border = { fg = "#2DD4BF" }
+active = { bg = "#152025", fg = "#2DD4BF", bold = true }
+inactive = { fg = "#7A8B8E" }
 
 [tasks]
-border = { fg = "#52c9b0" }
-title = { fg = "#52c9b0", bold = true }
-hovered = { fg = "#d4d4d4", bg = "#52c9b0", bold = true }
+border = { fg = "#2DD4BF" }
+title = { fg = "#2DD4BF", bold = true }
+hovered = { fg = "#E3E9EB", bg = "#2DD4BF", bold = true }
 
 [help]
-on = { fg = "#52c9b0" }
-run = { fg = "#e28e5a" }
-desc = { fg = "#d1b171" }
-hovered = { fg = "#d4d4d4", bg = "#52c9b0", bold = true }
-footer = { fg = "#d4d4d4", bg = "#333333" }
+on = { fg = "#2DD4BF" }
+run = { fg = "#D9973A" }
+desc = { fg = "#D9973A" }
+hovered = { fg = "#E3E9EB", bg = "#2DD4BF", bold = true }
+footer = { fg = "#E3E9EB", bg = "#152025" }
 
 [filetype]
 rules = [
   # Primary: turquoise — code/text handled by fallback
-  { mime = "image/*", fg = "#6b92e3" },
-  { mime = "{audio,video}/*", fg = "#e28e5a" },
-  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#d47779" },
-  { mime = "application/{pdf,doc,rtf}", fg = "#d1b171" },
-  { mime = "application/vnd.oasis.opendocument.*", fg = "#d1b171" },
-  { mime = "application/vnd.openxmlformats-officedocument.*", fg = "#d1b171" },
+  { mime = "image/*", fg = "#6C93E8" },
+  { mime = "{audio,video}/*", fg = "#D9973A" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#FF6369" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#D9973A" },
+  { mime = "application/vnd.oasis.opendocument.*", fg = "#D9973A" },
+  { mime = "application/vnd.openxmlformats-officedocument.*", fg = "#D9973A" },
 
-  { url = "*", is = "orphan", fg = "#1c1c1c", bg = "#d47779" },
-  { url = "*", is = "exec", fg = "#6b92e3" },
-  { url = "*", is = "dummy", fg = "#1c1c1c", bg = "#d47779" },
-  { url = "*/", is = "dummy", fg = "#1c1c1c", bg = "#d47779" },
+  { url = "*", is = "orphan", fg = "#0C1214", bg = "#FF6369" },
+  { url = "*", is = "exec", fg = "#6C93E8" },
+  { url = "*", is = "dummy", fg = "#0C1214", bg = "#FF6369" },
+  { url = "*/", is = "dummy", fg = "#0C1214", bg = "#FF6369" },
 
-  { url = "*/", fg = "#d4d4d4" },
+  { url = "*/", fg = "#E3E9EB" },
 
-  { url = "*", fg = "#d4d4d4" },
+  { url = "*", fg = "#E3E9EB" },
 ]

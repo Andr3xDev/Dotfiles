@@ -35,3 +35,13 @@ vim.api.nvim_create_autocmd("User", {
     end
   end,
 })
+
+-- To reload the colorscheme and all abysal modules
+vim.api.nvim_create_user_command("AbysalReload", function()
+  for name, _ in pairs(package.loaded) do
+    if name:match("^abysal") then
+      package.loaded[name] = nil
+    end
+  end
+  vim.cmd.colorscheme("abysal")
+end, {})

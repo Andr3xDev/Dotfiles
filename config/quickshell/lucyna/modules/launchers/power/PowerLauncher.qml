@@ -18,6 +18,11 @@ PanelWindow {
     property int    selectedIndex: 0
     property string uptimeText:    ""
 
+    // ── Layout constants ─────────────────────────────────
+    readonly property int cardW: 280
+    readonly property int cardH: 110
+    readonly property int actionSize: 52
+
     readonly property var actions: [{
         "label": "Lock",
         "icon": "󰌾",
@@ -42,7 +47,8 @@ PanelWindow {
 
     // ── Public API ───────────────────────────────────────
     function toggle() {
-        visible ? close() : open();
+        if (root.visible) close();
+        else open();
     }
 
     function open() {
@@ -74,10 +80,6 @@ PanelWindow {
     WlrLayershell.namespace: "powerLauncher"
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
     exclusionMode: ExclusionMode.Ignore
-    onConfirmIndexChanged: {
-        if (confirmIndex !== -1)
-            uptimeProcess.running = true
-    }
     onVisibleChanged: {
         if (visible) {
             uptimeProcess.running = true;
@@ -123,17 +125,20 @@ PanelWindow {
     Rectangle {
         id: card
 
-        width: 280
-        height: 110
+        width: root.cardW
+        height: root.cardH
         anchors.centerIn: parent
         color: Theme.ThemeManager.colors.surface.primary
-        radius: Theme.ThemeManager.radius.xl
+        radius: Theme.ThemeManager.radius.md
         border.width: 1
-        border.color: Theme.ThemeManager.colors.surface.secondary
+        border.color: Theme.ThemeManager.colors.border
         opacity: root.visible ? 1 : 0
         scale: root.visible ? 1 : 0.97
         focusPolicy: Qt.StrongFocus
-        Keys.onEscapePressed: root.confirmIndex !== -1 ? root.confirmIndex = -1 : root.close()
+        Keys.onEscapePressed: {
+            if (root.confirmIndex !== -1) root.confirmIndex = -1;
+            else root.close();
+        }
         Keys.onLeftPressed: root.selectedIndex = (root.selectedIndex - 1 + root.actions.length) % root.actions.length
         Keys.onRightPressed: root.selectedIndex = (root.selectedIndex + 1) % root.actions.length
         Keys.onReturnPressed: root.trigger(root.selectedIndex)
@@ -159,18 +164,16 @@ PanelWindow {
                         readonly property bool isSelected: root.selectedIndex === index
                         readonly property bool isHighlighted: isConfirming || isSelected || hoverArea.containsMouse
 
-                        width: 52
-                        height: 52
+                        width: root.actionSize
+                        height: root.actionSize
                         radius: Theme.ThemeManager.radius.lg
                         color: isConfirming
-                            ? Qt.rgba(Theme.ThemeManager.colors.accent.primary.r,
-                                      Theme.ThemeManager.colors.accent.primary.g,
-                                      Theme.ThemeManager.colors.accent.primary.b, 0.2)
+                            ? Theme.ThemeManager.alpha(Theme.ThemeManager.colors.accent, 0.2)
                             : Theme.ThemeManager.colors.surface.secondary
                         border.width: isSelected ? 2 : 1
                         border.color: isHighlighted
-                            ? Theme.ThemeManager.colors.accent.primary
-                            : Theme.ThemeManager.colors.surface.secondary
+                            ? Theme.ThemeManager.colors.accent
+                            : Theme.ThemeManager.colors.border
 
                         Text {
                             anchors.centerIn: parent
@@ -202,7 +205,7 @@ PanelWindow {
                     ? "Press again to " + root.actions[root.confirmIndex].label.toLowerCase()
                     : (root.uptimeText ? "󱑎  Uptime: " + root.uptimeText : " ")
                 color: root.confirmIndex !== -1
-                    ? Theme.ThemeManager.colors.accent.primary
+                    ? Theme.ThemeManager.colors.accent
                     : Theme.ThemeManager.colors.on.surface
                 font.pixelSize: Theme.ThemeManager.typography.size.sm
                 font.letterSpacing: 0.4

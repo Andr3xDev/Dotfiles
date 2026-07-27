@@ -10,7 +10,7 @@ log INFO "-------------------------------"
 log INFO "Applying theme: ${THEME}"
 
 if [[ "${THEME}" == "abysal-obsidian" ]]; then
-    FILE="frieren-1.png"
+    FILE="wall_hn2.jpg"
 
 elif [[ "${THEME}" == "abysal-marble" ]]; then
     FILE="wall_CR.jpg"

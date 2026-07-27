@@ -263,12 +263,12 @@ Item {
                         height:       24
                         radius:       Theme.ThemeManager.radius.md
                         color:        isActive
-                                          ? Theme.ThemeManager.colors.accent.primary
+                                          ? Theme.ThemeManager.colors.accent
                                           : Theme.ThemeManager.colors.surface.secondary
                         border.width: 1
                         border.color: isActive
-                                          ? Theme.ThemeManager.colors.accent.primary
-                                          : Theme.ThemeManager.colors.on.surfaceMuted
+                                          ? Theme.ThemeManager.colors.accent
+                                          : Theme.ThemeManager.colors.borderSubtle
 
                         Behavior on color { ColorAnimation { duration: Theme.ThemeManager.motion.duration.fast } }
 
@@ -396,8 +396,8 @@ Item {
             radius:       Theme.ThemeManager.radius.lg
             border.width: 1
             border.color: parent.activeFocus
-                              ? Theme.ThemeManager.colors.accent.primary
-                              : Theme.ThemeManager.colors.on.surfaceMuted
+                              ? Theme.ThemeManager.colors.accent
+                              : Theme.ThemeManager.colors.border
         }
     }
 
@@ -428,7 +428,7 @@ Item {
             anchors.fill: parent
             radius:       height / 2
             color:        toggle.checked
-                              ? Theme.ThemeManager.colors.accent.primary
+                              ? Theme.ThemeManager.colors.accent
                               : Theme.ThemeManager.colors.highlight.medium
 
             Behavior on color { ColorAnimation { duration: Theme.ThemeManager.motion.duration.fast } }

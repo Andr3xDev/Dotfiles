@@ -88,8 +88,8 @@ Item {
                     radius:       Theme.ThemeManager.radius.lg
                     border.width: 1
                     border.color: nameField.activeFocus
-                                      ? Theme.ThemeManager.colors.accent.primary
-                                      : Theme.ThemeManager.colors.on.surfaceMuted
+                                      ? Theme.ThemeManager.colors.accent
+                                      : Theme.ThemeManager.colors.border
                 }
                 Keys.onEscapePressed: { saveRow.saving = false; nameField.clear() }
                 Keys.onReturnPressed:  confirmSave()
@@ -130,9 +130,7 @@ Item {
             height: 40
             radius: Theme.ThemeManager.radius.lg
             color:  isActive
-                        ? Qt.rgba(Theme.ThemeManager.colors.accent.primary.r,
-                                  Theme.ThemeManager.colors.accent.primary.g,
-                                  Theme.ThemeManager.colors.accent.primary.b, 0.15)
+                        ? Theme.ThemeManager.colors.accentMuted
                         : rowArea.containsMouse
                             ? Theme.ThemeManager.colors.surface.secondary
                             : "transparent"
@@ -146,7 +144,7 @@ Item {
                     bottom: parent.bottom
                 }
                 height:  1
-                color:   Theme.ThemeManager.colors.accent.tertiary
+                color:   Theme.ThemeManager.colors.accent
                 opacity: 0.5
             }
 

@@ -2,22 +2,17 @@ import QtQuick
 import QtQuick.Layouts
 import "../../../core/theme" as Theme
 import "../../../core/services" as Services
+import "../../../core/components"
 
 /*!
     Power profile selector component to set different profiles
 */
-Item {
+ExpandableRow {
     id: root
-    property bool expanded: false
 
-    implicitWidth: expanded ? profileRow.implicitWidth : 0
-    implicitHeight: parent.height
-    visible: expanded || implicitWidth > 0
-    clip: true
-    
     // Profile color mapping
     readonly property var profileColors: ({
-        "power-saver": Theme.ThemeManager.colors.accent.tertiary,
+        "power-saver": Theme.ThemeManager.colors.detailSecondary,
         "balanced": Theme.ThemeManager.colors.status.warning,
         "performance": Theme.ThemeManager.colors.status.error
     })
@@ -25,8 +20,13 @@ Item {
     RowLayout {
         id: profileRow
         anchors.centerIn: parent
-        spacing: 15
-        
+        spacing: 15  // ponytail: intentionally a raw literal, mirrors the known-good reference implementation exactly — do not migrate to a spacing token, a prior token migration here caused a real layout-shift bug (session-confirmed)
+        opacity: root.expanded ? 1 : 0
+
+        Behavior on opacity {
+            NumberAnimation { duration: Theme.ThemeManager.motion.duration.standard }
+        }
+
         Repeater {
             model: Services.PowerService.profiles
             delegate: Item {
@@ -78,25 +78,13 @@ Item {
                     }
                 }
                 
-                MouseArea {
+                HoverScale {
                     anchors.fill: parent
+                    target: iconText
                     cursorShape: Qt.PointingHandCursor
                     onClicked: Services.PowerService.setProfile(modelData.id)
-                    
-                    // Hover animation each icon
-                    hoverEnabled: true
-                    onEntered: iconText.scale = 1.1
-                    onExited: iconText.scale = 1.0
                 }
             }
-        }
-    }
-    
-    // Animation to toggle
-    Behavior on implicitWidth {
-        NumberAnimation {
-            duration: Theme.ThemeManager.motion.duration.standard
-            easing.type: Theme.ThemeManager.motion.easing.standard
         }
     }
 }

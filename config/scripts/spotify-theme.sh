@@ -8,7 +8,7 @@ log INFO "Applying theme: ${THEME}"
 
 case "${THEME}" in
     "abysal-obsidian")
-        COLOR_SCHEME="Gray-Dark2"
+        COLOR_SCHEME="Matte"
         THEME_SPOTIFY="Matte"
         ;;
         

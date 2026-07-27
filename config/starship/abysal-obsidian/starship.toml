@@ -46,13 +46,13 @@ continuation_prompt = "▶▶ "
 palette = "abysal-obsidian"
 
 [palettes.abysal-obsidian]
-background = "#1c1c1c"
-overlay = "#262626"
-text = "#d4d4d4"
-blue = "#52c9b0"
-orange = "#e78a4e"
-yellow = "#d8a657"
-red = "#ea6962"
+background = "#0E161A"
+overlay = "#152025"
+text = "#E3E9EB"
+blue = "#2DD4BF"
+gold = "#D9973A"
+yellow = "#E9D568"
+red = "#FF6369"
 
 
 #-------------------------------------------------------------------------------------
@@ -65,14 +65,14 @@ fish_style_pwd_dir_length = 3
 truncate_to_repo = true
 home_symbol = " ~"
 read_only = "  "
-format = "[](fg:blue)[◤](fg:blue bg:overlay)[  ](bold fg:text bg:overlay)[$path](bold fg:text bg:overlay)[$read_only ](bold fg:orange bg:overlay)[◤](fg:overlay)"
+format = "[](fg:blue)[◤](fg:blue bg:overlay)[  ](bold fg:text bg:overlay)[$path](bold fg:text bg:overlay)[$read_only ](bold fg:gold bg:overlay)[◤](fg:overlay)"
 
 [git_branch]
 format = "[](fg:blue)[◤](fg:blue bg:overlay)[  ](bold fg:text bg:overlay)[$branch](bold fg:text bg:overlay)"
 truncation_symbol = "…/"
 
 [git_status]
-format = "[ $all_status$ahead_behind ](bold fg:orange bg:overlay)[◤](fg:overlay)"
+format = "[ $all_status$ahead_behind ](bold fg:gold bg:overlay)[◤](fg:overlay)"
 stashed = " "
 ahead = " ↑"
 behind = " ↓"
@@ -103,8 +103,8 @@ disabled = false
 
 [aws]
 symbol = " "
-format = "[](fg:blue)[◤](fg:blue bg:overlay)[ $symbol](bold fg:orange bg:overlay)[◤](bold fg:overlay)"
+format = "[](fg:blue)[◤](fg:blue bg:overlay)[ $symbol](bold fg:gold bg:overlay)[◤](bold fg:overlay)"
 
 [docker_context]
 symbol = " "
-format = "[](fg:blue)[◤](fg:blue bg:overlay)[ $symbol](bold fg:orange bg:overlay)[◤](bold fg:overlay)"
+format = "[](fg:blue)[◤](fg:blue bg:overlay)[ $symbol](bold fg:gold bg:overlay)[◤](bold fg:overlay)"

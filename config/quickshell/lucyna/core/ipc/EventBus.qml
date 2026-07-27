@@ -15,13 +15,6 @@ import QtQuick
 QtObject {
     id: root
 
-    // ── Theme ─────────────────────────────────────────────
-    signal themeChangeRequested(string themeId)
-    signal themeChanged(string themeId)
-
-    // ── Launchers ─────────────────────────────────────────
-    signal launcherToggleRequested(string launcherId)
-
     // ── Calendar ──────────────────────────────────────────
     // Clock emits calendarToggleRequested; CalendarWindow listens and acts.
     // CalendarWindow emits calendarVisibilityChanged; Clock listens to update its color.
@@ -32,7 +25,4 @@ QtObject {
     signal monitorProfileApplied(string profileId)
     signal monitorConnected(string monitorName)
     signal monitorDisconnected(string monitorName)
-
-    // ── Overlays ──────────────────────────────────────────
-    signal overlayRequested(string overlayId, bool visible)
 }

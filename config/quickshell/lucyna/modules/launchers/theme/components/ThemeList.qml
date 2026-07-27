@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import "../../../../core/theme" as Theme
+import "../../../../core/theme/palettes" as ThemeVariants
 
 /*!
     List of available themes with preview color dots.
@@ -11,11 +12,16 @@ Item {
 
     signal themeSelected(string themeId)
 
-    // Color previews per theme — keys match availableThemes ids
-    readonly property var themePreviewColors: ({
-        "abysal-obsidian": ["#1c1c1c", "#52c9b0", "#e28e5a"],
-        "abysal-marble":   ["#dcdcdc", "#2c9279", "#a04e1e"]
+    // Palettes by id — keys match availableThemes ids
+    readonly property var _palettesById: ({
+        "abysal-obsidian": ThemeVariants.AbysalObsidian,
+        "abysal-marble":   ThemeVariants.AbysalMarble
     })
+
+    function themePreviewColors(themeId) {
+        const p = root._palettesById[themeId]
+        return p ? [p.surface.primary, p.accent, p.accent] : []
+    }
 
     ColumnLayout {
         id: themeColumn
@@ -34,11 +40,11 @@ Item {
                 property bool isHovered: itemMouseArea.containsMouse
 
                 color: isActive
-                    ? Theme.ThemeManager.colors.accent.primary
+                    ? Theme.ThemeManager.colors.accent
                     : (isHovered ? Theme.ThemeManager.colors.highlight.medium : "transparent")
                 radius: Theme.ThemeManager.radius.sm
                 border.color: isActive
-                    ? Theme.ThemeManager.colors.border
+                    ? Theme.ThemeManager.colors.borderEmphasis
                     : "transparent"
                 border.width: isActive ? 1 : 0
 
@@ -59,7 +65,7 @@ Item {
                         Layout.preferredWidth: 3
                         Layout.preferredHeight: 18
                         radius: 1
-                        color: Theme.ThemeManager.colors.border
+                        color: Theme.ThemeManager.colors.accent
                         opacity: themeItem.isActive ? 1 : 0
 
                         Behavior on opacity {
@@ -88,7 +94,7 @@ Item {
                         spacing: 3
 
                         Repeater {
-                            model: root.themePreviewColors[modelData] || []
+                            model: root.themePreviewColors(modelData)
 
                             delegate: Rectangle {
                                 width: 12

@@ -2,18 +2,13 @@ import QtQuick
 import QtQuick.Layouts
 import "../../../core/theme" as Theme
 import "../../../core/services" as Services
+import "../../../core/components"
 
 /*!
     Group of indicators to know the status of the temp in PC's components
 */
-Item {
+ExpandableRow {
     id: root
-    property bool expanded: false
-
-    implicitWidth: expanded ? tempsRow.implicitWidth : 0
-    implicitHeight: parent.height
-    visible: expanded || implicitWidth > 0
-    clip: true
 
     /*!
         Return color to indicate warning levels
@@ -21,13 +16,13 @@ Item {
     function getTempColor(temp) {
         if (temp >= 80) return Theme.ThemeManager.colors.status.error    // critical
         if (temp >= 70) return Theme.ThemeManager.colors.status.warning  // warning
-        return Theme.ThemeManager.colors.accent.primary                  // normal
+        return Theme.ThemeManager.colors.accent                  // normal
     }
     
     RowLayout {
         id: tempsRow
         anchors.centerIn: parent
-        spacing: 10
+        spacing: 10  // ponytail: intentionally a raw literal, mirrors the known-good reference implementation exactly — do not migrate to a spacing token, a prior token migration here caused a real layout-shift bug (session-confirmed)
         opacity: root.expanded ? 1 : 0
         
         Behavior on opacity {
@@ -70,14 +65,6 @@ Item {
                 color: Theme.ThemeManager.colors.on.surface
                 font.pixelSize: Theme.ThemeManager.typography.size.sm
             }
-        }
-    }
-
-    // Animation to toggle
-    Behavior on implicitWidth {
-        NumberAnimation {
-            duration: Theme.ThemeManager.motion.duration.standard
-            easing.type: Theme.ThemeManager.motion.easing.standard
         }
     }
 }

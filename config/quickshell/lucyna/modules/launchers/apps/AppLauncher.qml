@@ -26,7 +26,8 @@ PanelWindow {
 
     // ── Public API ───────────────────────────────────────
     function toggle() {
-        visible ? close() : open();
+        if (root.visible) close();
+        else open();
     }
 
     function open() {
@@ -36,9 +37,9 @@ PanelWindow {
     }
 
     function close() {
+        AppLauncherState.query = "";
         root.visible = false;
         searchInput.clear();
-        AppLauncherState.query = "";
     }
 
     // ── Visibility ───────────────────────────────────────
@@ -87,7 +88,9 @@ PanelWindow {
         color: Theme.ThemeManager.colors.surface.primary
         radius: Theme.ThemeManager.radius.md
         border.width: 1
-        border.color: Theme.ThemeManager.colors.highlight.medium
+        border.color: Theme.ThemeManager.colors.border
+        opacity: root.visible ? 1 : 0
+        scale: root.visible ? 1 : 0.97
 
         MouseArea {
             anchors.fill: parent
@@ -126,13 +129,13 @@ PanelWindow {
                     color: Theme.ThemeManager.colors.surface.secondary
                     radius: Theme.ThemeManager.radius.lg
                     border.width: 1
-                    border.color: searchInput.activeFocus ? Theme.ThemeManager.colors.accent.primary : Theme.ThemeManager.colors.on.surfaceMuted
+                    border.color: searchInput.activeFocus ? Theme.ThemeManager.colors.accent : Theme.ThemeManager.colors.border
 
                     Text {
                         text: " 󰍉 "
                         font.family: Theme.ThemeManager.typography.family.icons
                         font.pixelSize: Theme.ThemeManager.typography.size.xl
-                        color: Theme.ThemeManager.colors.accent.primary
+                        color: Theme.ThemeManager.colors.accent
 
                         anchors {
                             verticalCenter: parent.verticalCenter
@@ -279,5 +282,8 @@ PanelWindow {
                 width: parent.width
             }
         }
+
+        Behavior on opacity { NumberAnimation { duration: Theme.ThemeManager.motion.duration.fast; easing.type: Theme.ThemeManager.motion.easing.standard } }
+        Behavior on scale   { NumberAnimation { duration: Theme.ThemeManager.motion.duration.fast; easing.type: Theme.ThemeManager.motion.easing.standard } }
     }
 }

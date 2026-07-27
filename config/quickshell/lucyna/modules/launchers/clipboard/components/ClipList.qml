@@ -46,7 +46,7 @@ ListView {
             height: parent.height - 12
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 2 }
             radius:  2
-            color:   Theme.ThemeManager.colors.accent.primary
+            color:   Theme.ThemeManager.colors.accent
             visible: row.isCurrent
         }
 
@@ -116,7 +116,7 @@ ListView {
                     text:              "󰋩"
                     font.family:       Theme.ThemeManager.typography.family.icons
                     font.pixelSize:    Theme.ThemeManager.typography.bigIconSize
-                    color:             Theme.ThemeManager.colors.accent.tertiary
+                    color:             Theme.ThemeManager.colors.accent
                     verticalAlignment: Text.AlignVCenter
                     height:            48
                 }
@@ -143,9 +143,7 @@ ListView {
             anchors { right: parent.right; rightMargin: 8; verticalCenter: parent.verticalCenter }
             radius: Theme.ThemeManager.radius.lg
             color:  _xHover.containsMouse
-                ? Qt.rgba(Theme.ThemeManager.colors.accent.secondary.r,
-                          Theme.ThemeManager.colors.accent.secondary.g,
-                          Theme.ThemeManager.colors.accent.secondary.b, 0.15)
+                ? Theme.ThemeManager.alpha(Theme.ThemeManager.colors.accent, 0.15)
                 : "transparent"
 
             Behavior on color { ColorAnimation { duration: Theme.ThemeManager.motion.duration.fast } }
@@ -153,7 +151,7 @@ ListView {
             Text {
                 anchors.centerIn: parent
                 text:           "✕"
-                color:          Theme.ThemeManager.colors.accent.secondary
+                color:          Theme.ThemeManager.colors.accent
                 font.pixelSize: Theme.ThemeManager.typography.size.md
                 font.bold:      true
             }

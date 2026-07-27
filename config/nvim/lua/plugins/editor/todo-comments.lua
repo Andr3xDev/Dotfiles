@@ -2,8 +2,6 @@
 --- general config for todo, warning, error, etc comments in code
 ---------------------------------------------------------------------------
 
-local palette = require("palettes.abysal").get_palette()
-
 return {
   "folke/todo-comments.nvim",
   dependencies = {
@@ -27,18 +25,20 @@ return {
       desc = "Prev Todo",
     },
   },
-  opts = {
-    colors = {
-      error = { "DiagnosticError", "ErrorMsg", palette.color4 },
-      warning = { "DiagnosticWarn", "WarningMsg", palette.color3 },
-      info = { "DiagnosticInfo", palette.color1 },
-      hint = { "DiagnosticHint", palette.color2 },
-      default = { "Identifier", palette.color1 },
-      test = { "Identifier", palette.color5 },
-      todo = { palette.color1 },
-      hack = { palette.color2 },
-      note = { palette.color2 },
-      perf = { palette.color5 },
+  opts = function()
+    local colors = require("abysal").colors()
+    return {
+      colors = {
+      error = { "DiagnosticError", "ErrorMsg", colors.red },
+      warning = { "DiagnosticWarn", "WarningMsg", colors.amber },
+      info = { "DiagnosticInfo", colors.primary },
+      hint = { "DiagnosticHint", colors.amber },
+      default = { "Identifier", colors.primary },
+      test = { "Identifier", colors.blue },
+      todo = { colors.primary },
+      hack = { colors.amber },
+      note = { colors.amber },
+      perf = { colors.blue },
     },
 
     signs = true,
@@ -86,5 +86,27 @@ return {
       },
       pattern = [[\b(KEYWORDS):?]],
     },
-  },
+    }
+  end,
+  config = function(_, opts)
+    require("todo-comments").setup(opts)
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        local colors = require("abysal").colors()
+        opts.colors = {
+          error = { "DiagnosticError", "ErrorMsg", colors.red },
+          warning = { "DiagnosticWarn", "WarningMsg", colors.amber },
+          info = { "DiagnosticInfo", colors.primary },
+          hint = { "DiagnosticHint", colors.amber },
+          default = { "Identifier", colors.primary },
+          test = { "Identifier", colors.blue },
+          todo = { colors.primary },
+          hack = { colors.amber },
+          note = { colors.amber },
+          perf = { colors.blue },
+        }
+        require("todo-comments").setup(opts)
+      end,
+    })
+  end,
 }

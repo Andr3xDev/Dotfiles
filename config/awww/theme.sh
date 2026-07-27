@@ -11,7 +11,7 @@ log INFO "Applying theme: ${THEME}"
 case "${THEME}" in
     "abysal-obsidian")
         for MONITOR in $MONITORS; do
-            awww img "$WALLPAPER_DIR/frieren-1.png" \
+            awww img "$WALLPAPER_DIR/wall_hn2.jpg" \
                 --transition-type fade \
                 --transition-fps 60 \
                 --transition-duration 2 \

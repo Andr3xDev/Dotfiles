@@ -43,8 +43,8 @@ Rectangle {
     radius:       Theme.ThemeManager.radius.lg
     border.width: 1
     border.color: searchInput.activeFocus
-        ? Theme.ThemeManager.colors.accent.primary
-        : Theme.ThemeManager.colors.on.surfaceMuted
+        ? Theme.ThemeManager.colors.accent
+        : Theme.ThemeManager.colors.border
 
     // Search icon
     Text {
@@ -52,7 +52,7 @@ Rectangle {
         text:           " 󰅍 "
         font.family:    Theme.ThemeManager.typography.family.icons
         font.pixelSize: Theme.ThemeManager.typography.size.xl
-        color:          Theme.ThemeManager.colors.accent.primary
+        color:          Theme.ThemeManager.colors.accent
     }
 
     // Search input
@@ -70,7 +70,7 @@ Rectangle {
         color:              Theme.ThemeManager.colors.on.surface
         font.pixelSize:     Theme.ThemeManager.typography.size.lg
         font.letterSpacing: 0.3
-        selectionColor:     Theme.ThemeManager.colors.accent.primary
+        selectionColor:     Theme.ThemeManager.colors.accent
         clip:               true
         focus:              true
 
@@ -104,9 +104,7 @@ Rectangle {
         radius: Theme.ThemeManager.radius.lg
 
         color: (_trashHover.containsMouse || root._confirmingClear)
-            ? Qt.rgba(Theme.ThemeManager.colors.accent.secondary.r,
-                      Theme.ThemeManager.colors.accent.secondary.g,
-                      Theme.ThemeManager.colors.accent.secondary.b, 0.15)
+            ? Theme.ThemeManager.alpha(Theme.ThemeManager.colors.accent, 0.15)
             : "transparent"
 
         Behavior on color { ColorAnimation { duration: Theme.ThemeManager.motion.duration.fast } }
@@ -116,7 +114,7 @@ Rectangle {
             text:           root._confirmingClear ? "󰄬" : "󰩺"
             font.family:    Theme.ThemeManager.typography.family.icons
             font.pixelSize: Theme.ThemeManager.typography.size.xl
-            color:          Theme.ThemeManager.colors.accent.secondary
+            color:          Theme.ThemeManager.colors.accent
 
             Behavior on color { ColorAnimation { duration: Theme.ThemeManager.motion.duration.fast } }
         }

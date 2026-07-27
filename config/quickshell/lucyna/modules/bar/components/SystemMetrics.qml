@@ -2,19 +2,14 @@ import QtQuick
 import QtQuick.Layouts
 import "../../../core/theme" as Theme
 import "../../../core/services" as Services
+import "../../../core/components"
 import "../layout"
 
 /*!
     Group of circular indicators showing CPU, GPU, RAM and disk usage.
 */
-Item {
+ExpandableRow {
     id: root
-    property bool expanded: false
-
-    implicitWidth: expanded ? metricsRow.implicitWidth : 0
-    implicitHeight: parent.height
-    visible: expanded || implicitWidth > 0
-    clip: true
 
     readonly property real metricSize:      20
     readonly property real metricLineWidth: 1.5
@@ -22,7 +17,7 @@ Item {
     RowLayout {
         id: metricsRow
         anchors.centerIn: parent
-        spacing: 2
+        spacing: 2  // ponytail: intentionally a raw literal, mirrors the known-good reference implementation exactly — do not migrate to a spacing token, a prior token migration here caused a real layout-shift bug (session-confirmed)
         opacity: root.expanded ? 1 : 0
 
         Behavior on opacity {
@@ -55,13 +50,6 @@ Item {
             icon: "󰋊"
             size: root.metricSize
             lineWidth: root.metricLineWidth
-        }
-    }
-
-    Behavior on implicitWidth {
-        NumberAnimation {
-            duration: Theme.ThemeManager.motion.duration.standard
-            easing.type: Theme.ThemeManager.motion.easing.standard
         }
     }
 }

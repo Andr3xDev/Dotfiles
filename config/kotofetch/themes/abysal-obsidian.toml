@@ -22,10 +22,10 @@
 [display]
 horizontal_padding = 0
 vertical_padding = 1
-width = 100
+width = 90
 show_translation = "english"
-quote_color = "#d4d4d4" 
-translation_color = "#737373" 
+quote_color = "#E3E9EB" 
+translation_color = "#7A8B8E" 
 font_size = "small"
 bold = true
 border = false

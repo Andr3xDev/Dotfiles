@@ -44,7 +44,7 @@ Scope {
             Rectangle {
                 anchors.fill: parent
                 radius: height / 2
-                color: "#80000000"
+                color: Theme.ThemeManager.alpha(Theme.ThemeManager.colors.surface.overlay, 0.5)
 
                 RowLayout {
                     anchors {
@@ -68,7 +68,7 @@ Scope {
                         Layout.fillWidth: true
                         implicitHeight: 10
                         radius: 20
-                        color: "#50ffffff"
+                        color: Theme.ThemeManager.alpha(Theme.ThemeManager.colors.on.surface, 0.31)
 
                         Rectangle {
                             anchors {

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import "../../../core/theme" as Theme
+import "../../../core/components"
 
 /*!
     Toogle sistem to hide information & show it by clicking the square with an icon
@@ -12,20 +13,19 @@ Rectangle {
         : implicitHeight
     implicitHeight: 20
     readonly property real hPad: Theme.ThemeManager.spacing.xs
+
     // Visuals
     color: expanded
-        ? Theme.ThemeManager.colors.highlight.strong
+        ? Theme.ThemeManager.colors.accentMuted
         : "transparent"
     radius: Theme.ThemeManager.radius.sm
-    border.color: Theme.ThemeManager.colors.highlight.strong
+    border.color: Theme.ThemeManager.colors.borderEmphasis
     border.width: 1
 
     // Values to show
     property string icon: ""
     property string label: ""
     property bool expanded: false
-
-    signal toggled()
 
     // Animation to open
     Behavior on color {
@@ -43,7 +43,7 @@ Rectangle {
         Text {
             text: icon
             color: expanded
-                ? Theme.ThemeManager.colors.accent.secondary
+                ? "#FFFFFF"  // ponytail: deliberately hardcoded, not theme-driven — reads legibly against accentMuted fill in both light/dark themes, unlike any semantic role tried so far
                 : Theme.ThemeManager.colors.on.surface
             font.pixelSize: Theme.ThemeManager.typography.iconSize
             font.family: Theme.ThemeManager.typography.family.icons
@@ -61,7 +61,7 @@ Rectangle {
             visible: label !== ""
             text: label
             color: expanded
-                ? Theme.ThemeManager.colors.surface.primary
+                ? Theme.ThemeManager.colors.on.accent
                 : Theme.ThemeManager.colors.on.surface
             font.pixelSize: Theme.ThemeManager.typography.size.sm
             Layout.alignment: Qt.AlignCenter
@@ -75,24 +75,12 @@ Rectangle {
         }
     }
 
-    MouseArea {
+    HoverScale {
         anchors.fill: parent
+        target: toggleIndicator
         cursorShape: Qt.PointingHandCursor
         onClicked: {
             expanded = !expanded
-            toggleIndicator.toggled()
-        }
-
-        hoverEnabled: true
-        onEntered: toggleIndicator.scale = 1.2
-        onExited: toggleIndicator.scale = 1.0
-    }
-
-    // Animation to scale on hover
-    Behavior on scale {
-        NumberAnimation {
-            duration: Theme.ThemeManager.motion.duration.fast
-            easing.type: Theme.ThemeManager.motion.easing.standard
         }
     }
 }

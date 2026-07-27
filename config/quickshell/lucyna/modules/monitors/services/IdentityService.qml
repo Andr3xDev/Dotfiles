@@ -31,7 +31,7 @@ QtObject {
 
     // ── Paths ──────────────────────────────────────────────
     readonly property string _dataFile:
-        Quickshell.env("HOME") + "/.config/quickshell/lucyna/modules/monitors/data/identities.json"
+        Quickshell.shellDir + "/modules/monitors/data/identities.json"
 
     // ── Load script ───────────────────────────────────────
     readonly property string _loadScript: [

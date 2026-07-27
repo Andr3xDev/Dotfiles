@@ -49,7 +49,7 @@ Rectangle {
     color:        Theme.ThemeManager.colors.surface.primary
     radius:       Theme.ThemeManager.radius.md
     border.width: 1
-    border.color: Theme.ThemeManager.colors.highlight.medium
+    border.color: Theme.ThemeManager.colors.border
 
     MouseArea { anchors.fill: parent }
 

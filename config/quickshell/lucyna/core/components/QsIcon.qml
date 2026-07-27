@@ -17,8 +17,7 @@ Text {
     // The nerd-font glyph character to display.
     property string glyph: ""
 
-    // Color role: "default" | "accent" | "accentSecondary" | "muted"
-    //             "error"   | "warning" | "success"
+    // Color role: "default" | "accent" | "muted" | "error" | "warning"
     property string colorRole: "default"
 
     text: glyph
@@ -27,13 +26,11 @@ Text {
 
     color: {
         switch (colorRole) {
-            case "accent":          return Theme.ThemeManager.colors.accent.primary
-            case "accentSecondary": return Theme.ThemeManager.colors.accent.secondary
-            case "muted":           return Theme.ThemeManager.colors.on.surfaceMuted
-            case "error":           return Theme.ThemeManager.colors.status.error
-            case "warning":         return Theme.ThemeManager.colors.status.warning
-            case "success":         return Theme.ThemeManager.colors.status.success
-            default:                return Theme.ThemeManager.colors.on.surface
+            case "accent":  return Theme.ThemeManager.colors.accent
+            case "muted":   return Theme.ThemeManager.colors.on.surfaceMuted
+            case "error":   return Theme.ThemeManager.colors.status.error
+            case "warning": return Theme.ThemeManager.colors.status.warning
+            default:        return Theme.ThemeManager.colors.on.surface
         }
     }
 }

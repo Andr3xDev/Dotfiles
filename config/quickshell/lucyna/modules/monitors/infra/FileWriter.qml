@@ -21,7 +21,7 @@ QtObject {
     readonly property string _script: [
         "import sys, os",
         "dest, content = sys.argv[1], sys.argv[2]",
-        "tmp = dest + '.tmp'",
+        "tmp = dest + '.' + str(os.getpid()) + '.tmp'",
         "try:",
         "    os.makedirs(os.path.dirname(dest), exist_ok=True)",
         "    open(tmp, 'w').write(content)",

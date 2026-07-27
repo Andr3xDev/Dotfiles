@@ -27,8 +27,11 @@ PanelWindow {
     WlrLayershell.keyboardFocus: root.visible ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
     exclusionMode: ExclusionMode.Ignore
 
-    // Notify the bar (Clock) whenever visibility changes
-    onVisibleChanged: Ipc.EventBus.calendarVisibilityChanged(visible)
+    // Notify the bar (Clock) whenever the real open state changes
+    Connections {
+        target: CalendarState
+        function onIsVisibleChanged() { Ipc.EventBus.calendarVisibilityChanged(CalendarState.isVisible) }
+    }
 
     anchors {
         top: true
@@ -72,18 +75,16 @@ PanelWindow {
         anchors.horizontalCenter: parent.horizontalCenter
         z: 1
         opacity: root.visible ? 1 : 0
+        scale: root.visible ? 1 : 0.97
         radius: Theme.ThemeManager.radius.md
         border.width: 1
-        border.color: Qt.rgba(
-            Theme.ThemeManager.colors.highlight.strong.r,
-            Theme.ThemeManager.colors.highlight.strong.g,
-            Theme.ThemeManager.colors.highlight.strong.b, 0.9)
-        color: Qt.rgba(
-            Theme.ThemeManager.colors.surface.primary.r,
-            Theme.ThemeManager.colors.surface.primary.g,
-            Theme.ThemeManager.colors.surface.primary.b, 0.96)
+        border.color: Theme.ThemeManager.colors.borderEmphasis
+        color: Theme.ThemeManager.alpha(Theme.ThemeManager.colors.surface.primary, 0.96)
 
         Behavior on opacity {
+            NumberAnimation { duration: Theme.ThemeManager.motion.duration.fast; easing.type: Theme.ThemeManager.motion.easing.standard }
+        }
+        Behavior on scale {
             NumberAnimation { duration: Theme.ThemeManager.motion.duration.fast; easing.type: Theme.ThemeManager.motion.easing.standard }
         }
 

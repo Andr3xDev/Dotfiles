@@ -9,7 +9,7 @@ import "../theme" as Theme
     Variants
     --------
     "ghost"   transparent bg, highlight on hover, on.surface text  (default)
-    "filled"  accent.primary bg, accent.secondary on hover, surface.primary text
+    "filled"  accent bg, accent on hover, on.accent text
     "outline" transparent bg + border, highlight on hover, on.surface text
     "danger"  status.error bg, status.error+dim on hover, surface.primary text
 
@@ -47,7 +47,7 @@ Rectangle {
     // Internal variant
     readonly property color _variantBg: {
         switch (variant) {
-            case "filled":  return Theme.ThemeManager.colors.accent.primary
+            case "filled":  return Theme.ThemeManager.colors.accent
             case "danger":  return Theme.ThemeManager.colors.status.error
             default:        return "transparent"
         }
@@ -55,7 +55,7 @@ Rectangle {
 
     readonly property color _variantHover: {
         switch (variant) {
-            case "filled":  return Theme.ThemeManager.colors.accent.secondary
+            case "filled":  return Theme.ThemeManager.colors.accent
             case "danger":  return Qt.darker(Theme.ThemeManager.colors.status.error, 1.2)
             default:        return Theme.ThemeManager.colors.highlight.medium
         }
@@ -63,7 +63,7 @@ Rectangle {
 
     readonly property color _variantLabel: {
         switch (variant) {
-            case "filled":  return Theme.ThemeManager.colors.surface.primary
+            case "filled":  return Theme.ThemeManager.colors.on.accent
             case "danger":  return Theme.ThemeManager.colors.surface.primary
             default:        return Theme.ThemeManager.colors.on.surface
         }
@@ -71,7 +71,7 @@ Rectangle {
 
     readonly property color _variantBorder: {
         switch (variant) {
-            case "outline": return Theme.ThemeManager.colors.highlight.medium
+            case "outline": return Theme.ThemeManager.colors.border
             default:        return "transparent"
         }
     }

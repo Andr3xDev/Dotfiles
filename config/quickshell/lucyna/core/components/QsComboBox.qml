@@ -27,8 +27,8 @@ ComboBox {
         radius:       Theme.ThemeManager.radius.lg
         border.width: 1
         border.color: root.activeFocus
-                          ? Theme.ThemeManager.colors.accent.primary
-                          : Theme.ThemeManager.colors.on.surfaceMuted
+                          ? Theme.ThemeManager.colors.accent
+                          : Theme.ThemeManager.colors.border
     }
 
     contentItem: Text {
@@ -48,7 +48,7 @@ ComboBox {
             leftPadding:       8
             text:              modelData
             color:             highlighted
-                                   ? Theme.ThemeManager.colors.accent.primary
+                                   ? Theme.ThemeManager.colors.accent
                                    : Theme.ThemeManager.colors.on.surface
             font.pixelSize:    Theme.ThemeManager.typography.size.md
             verticalAlignment: Text.AlignVCenter
@@ -70,7 +70,7 @@ ComboBox {
             color:        Theme.ThemeManager.colors.surface.secondary
             radius:       Theme.ThemeManager.radius.lg
             border.width: 1
-            border.color: Theme.ThemeManager.colors.highlight.medium
+            border.color: Theme.ThemeManager.colors.border
         }
 
         contentItem: Rectangle {

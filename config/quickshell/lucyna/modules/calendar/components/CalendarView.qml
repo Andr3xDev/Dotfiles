@@ -24,10 +24,7 @@ Item {
     readonly property int _todayDay:   _today.getDate()
     readonly property int _todayMonth: _today.getMonth() + 1
     readonly property int _todayYear:  _today.getFullYear()
-    readonly property color _todayColor: Qt.rgba(
-        Theme.ThemeManager.colors.accent.primary.r,
-        Theme.ThemeManager.colors.accent.primary.g,
-        Theme.ThemeManager.colors.accent.primary.b, 0.18)
+    readonly property color _todayColor: Theme.ThemeManager.alpha(Theme.ThemeManager.colors.accent, 0.18)
     // Static data
     readonly property var _monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"]
     readonly property var _weekLabels: ["Su","Mo","Tu","We","Th","Fr","Sa"]
@@ -108,7 +105,7 @@ Item {
                 font.bold: true
             }
 
-            NavButton { label: "Today"; labelColor: Theme.ThemeManager.colors.accent.primary; labelSize: Theme.ThemeManager.typography.size.xs; onActivated: root._goToday() }
+            NavButton { label: "Today"; labelColor: Theme.ThemeManager.colors.accent; labelSize: Theme.ThemeManager.typography.size.xs; onActivated: root._goToday() }
             NavButton { implicitWidth: 26; label: "‹"; onActivated: root._prevMonth() }
             NavButton { implicitWidth: 26; label: "›"; onActivated: root._nextMonth() }
         }
@@ -163,9 +160,9 @@ Item {
                         font.bold: modelData.isToday
                         opacity: modelData.isCurrentMonth ? 1 : 0.3
                         color: modelData.isToday
-                            ? Theme.ThemeManager.colors.accent.primary
+                            ? Theme.ThemeManager.colors.accent
                             : (modelData.isCurrentMonth && (modelData.isSunday || modelData.isHoliday))
-                                ? Theme.ThemeManager.colors.accent.secondary
+                                ? Theme.ThemeManager.colors.accent
                                 : Theme.ThemeManager.colors.on.surface
                     }
                 }

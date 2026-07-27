@@ -26,7 +26,7 @@ PanelWindow {
     readonly property int cardH:   pad + searchH + pad + listH + pad
 
     // Public API
-    function toggle() { visible ? close() : open() }
+    function toggle() { root.visible ? close() : open() }
 
     function open() {
         ClipState.refresh()
@@ -74,7 +74,9 @@ PanelWindow {
         color:        Theme.ThemeManager.colors.surface.primary
         radius:       Theme.ThemeManager.radius.md
         border.width: 1
-        border.color: Theme.ThemeManager.colors.highlight.medium
+        border.color: Theme.ThemeManager.colors.border
+        opacity:      root.visible ? 1 : 0
+        scale:        root.visible ? 1 : 0.97
 
         MouseArea { anchors.fill: parent }
 
@@ -135,6 +137,9 @@ PanelWindow {
                 clipState: ClipState
             }
         }
+
+        Behavior on opacity { NumberAnimation { duration: Theme.ThemeManager.motion.duration.fast; easing.type: Theme.ThemeManager.motion.easing.standard } }
+        Behavior on scale   { NumberAnimation { duration: Theme.ThemeManager.motion.duration.fast; easing.type: Theme.ThemeManager.motion.easing.standard } }
     }
 
     Connections {

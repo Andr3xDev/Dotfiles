@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import "../../../core/theme" as Theme
+import "../../../core/components"
 
 /*!
     A dynamic widget for displaying and switching between Hyprland workspaces.
@@ -27,7 +28,7 @@ Item {
         "8": "チ",
         "9": "リ",
         "10": "ヌ",
-        "11": "ル"
+        "11": "ル"  // ponytail: intentional fallback — edge cases can surface workspace 11 despite numWorkspaces defaulting to 10; user-confirmed keep, not dead code
     }
 
     // multi-monitor values to render property
@@ -47,8 +48,8 @@ Item {
         or fallback when inactive. Used for both text and border coloring.
     */
     function workspaceColor(workspace, fallback) {
-        if (workspace.focused) return Theme.ThemeManager.colors.accent.primary;
-        if (workspace.active)  return Theme.ThemeManager.colors.accent.secondary;
+        if (workspace.focused) return Theme.ThemeManager.colors.accent;
+        if (workspace.active)  return Theme.ThemeManager.colors.accent;
         return fallback;
     }
 
@@ -72,6 +73,7 @@ Item {
 
                 // Workspaces colors & names implementation
                 Text {
+                    id: workspaceText
                     anchors.centerIn: parent
                     text: workspaceNames[localId(modelData.id).toString()] || localId(modelData.id)
                     color: workspaceColor(modelData, Theme.ThemeManager.colors.on.surfaceMuted)
@@ -89,8 +91,9 @@ Item {
                 }
 
                 // Clickable
-                MouseArea {
+                HoverScale {
                     anchors.fill: parent
+                    target: workspaceText
                     cursorShape: Qt.PointingHandCursor
                     onClicked: modelData.activate()
                 }

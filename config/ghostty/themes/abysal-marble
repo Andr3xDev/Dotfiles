@@ -1,39 +1,39 @@
 # General stuff
-background = #dcdcdc
-foreground = #2f2f2f
-cursor-color = #2c9279
-cursor-text = #dcdcdc
-selection-background = #c4c4c4
-selection-foreground = #2f2f2f
+background = #F0F3F4
+foreground = #0D1518
+cursor-color = #0D9488
+cursor-text = #F0F3F4
+selection-background = #CBE4E1
+selection-foreground = #0D1518
 
 # Black / Dark Gray (Borders and Comments)
-palette = 0=#bcbcbc
-palette = 8=#737373
+palette = 0 = #8F9DA2
+palette = 8 = #445256
 
 # Red (Errors and Git Deletions)
-palette = 1=#a8474a
-palette = 9=#a8474a
+palette = 1 = #C13034
+palette = 9 = #E5484D
 
-# Green (Turquoise - Main success indicator and valid strings)
-palette = 2=#2c9279
-palette = 10=#2c9279
+# Green (Turquoise hack)
+palette = 2 = #0D9488
+palette = 10 = #14B8A6
 
 # Yellow (Sand - Warnings and secondary attributes)
-palette = 3=#7a6020
-palette = 4=#7a6020
-palette = 11=#7a6020
+palette = 3 = #8A7818
+palette = 4 = #8A7818
+palette = 11 = #8A7818
 
-# Blue (Orange - Replaced per user request for Folders/Directories)
-palette = 12=#a04e1e
+# Blue (Orange - Folders/Directories, hack mantenido)
+palette = 12 = #8A5A1D
 
-# Magenta (Lavender - Keywords and syntax control)
-palette = 5=#824699
-palette = 13=#824699
+# Magenta (Turquoise - Keywords and syntax control)
+palette = 5 = #0D9488
+palette = 13 = #14B8A6
 
-# Cyan (Steel Blue - Moved here to retain the blue hue for symlinks/special files)
-palette = 6=#365ca8
-palette = 14=#365ca8
+# Cyan (Real blue — symlinks/special files)
+palette = 6 = #2F4EA8
+palette = 14 = #4A66C2
 
 # White (Light Gray - Secondary and highlighted text)
-palette = 7=#555555
-palette = 15=#2f2f2f
+palette = 7 = #33424A
+palette = 15 = #0D1518

@@ -10,7 +10,7 @@ import "../../../core/ipc" as Ipc
 */
 Item {
     id: clock
-    implicitWidth: clockText.implicitWidth + 16
+    implicitWidth: clockText.implicitWidth + Theme.ThemeManager.spacing.lg
     Layout.fillHeight: true
 
     // Tracks calendar open/close state via EventBus — no direct module coupling
@@ -44,7 +44,7 @@ Item {
         font.bold:       true
         font.pixelSize:  Theme.ThemeManager.typography.size.sm
         color: clock._calendarOpen
-            ? Theme.ThemeManager.colors.accent.primary
+            ? Theme.ThemeManager.colors.accent
             : Theme.ThemeManager.colors.on.surface
 
         Behavior on color { ColorAnimation { duration: Theme.ThemeManager.motion.duration.fast } }

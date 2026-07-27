@@ -27,21 +27,39 @@ return {
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
-    local palette = require("palettes.abysal")
-    local c = palette.get_palette()
+    local function hex_to_rgb(hex)
+      return { tonumber(hex:sub(2, 3), 16), tonumber(hex:sub(4, 5), 16), tonumber(hex:sub(6, 7), 16) }
+    end
 
-    -- Base colors
-    vim.api.nvim_set_hl(0, "AlphaLines", { fg = c.text })
-    vim.api.nvim_set_hl(0, "AlphaEyes", { fg = c.color1 })
-    vim.api.nvim_set_hl(0, "AlphaButtons", { fg = c.color1 })
-    vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = c.color2 })
+    local function lerp_hex(from, to, t)
+      local a, b = hex_to_rgb(from), hex_to_rgb(to)
+      return string.format(
+        "#%02X%02X%02X",
+        math.floor(a[1] + (b[1] - a[1]) * t + 0.5),
+        math.floor(a[2] + (b[2] - a[2]) * t + 0.5),
+        math.floor(a[3] + (b[3] - a[3]) * t + 0.5)
+      )
+    end
 
-    -- Gradiand colors
-    vim.api.nvim_set_hl(0, "AlphaLogo1", { fg = c.grad0 })
-    vim.api.nvim_set_hl(0, "AlphaLogo2", { fg = c.grad1 })
-    vim.api.nvim_set_hl(0, "AlphaLogo3", { fg = c.grad2 })
-    vim.api.nvim_set_hl(0, "AlphaLogo4", { fg = c.grad3 })
-    vim.api.nvim_set_hl(0, "AlphaLogo5", { fg = c.grad4 })
+    local function apply_highlights()
+      local c = require("abysal").colors()
+
+      -- Base colors
+      vim.api.nvim_set_hl(0, "AlphaLines", { fg = c.fg })
+      vim.api.nvim_set_hl(0, "AlphaEyes", { fg = c.primary })
+      vim.api.nvim_set_hl(0, "AlphaButtons", { fg = c.primary })
+      vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = c.amber })
+
+      -- Gradiand colors
+      for i = 1, 5 do
+        vim.api.nvim_set_hl(0, "AlphaLogo" .. i, { fg = lerp_hex(c.primary, c.amber, (i - 1) / 4) })
+      end
+    end
+
+    apply_highlights()
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = apply_highlights,
+    })
 
     -- header
     -- stylua: ignore start
@@ -55,7 +73,6 @@ return {
       { type = "text", val = "   ⠀⠊⢫⣿⣏⣿⡌⣼⣄⢫⡌⣿⣿⣿⣿⣿⣦⡈⠲⣄⣤⣤⡡⢀⣠⣿⣿⣿⣿⣿⣿⣷⣼⣍⢬⣦⡙⣿⣿⣿⣿⣿⣯⢁⡄⠀⡀⡀⠀⠄⢈⣠⢪⠀⣿⣿⣿⣦⠀⢉⢂⠹⡿⣿⣿⡏    ", opts = { hl = "AlphaEyes", position = "center" } },
       { type = "text", val = "   ⠀⠀⠄⢹⢃⢻⣟⠙⣿⣦⠱⢻⣿⣿⣿⣿⣿⣿⣷⣬⣍⣭⣥⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡙⢿⣼⡿⣿⣿⣿⣿⣿⣷⣄⠘⣱⢦⣤⡴⡿⢈⣼⣿⣿⣿⣇⣴⣶⣮⣅⢻⣿⣿⡏    ", opts = { hl = "AlphaEyes", position = "center" } },
       { type = "text", val = "   ⠀⠀⠈⠹⣇⢡⢿⡆⠻⣿⣷⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣍⡻⣿⣟⣻⣿⣿⣿⣿⣷⣦⣥⣬⣤⣴⣾⣿⣿⣿⣿⣷⣿⣿⣿⣿⣷⡜⠃     ", opts = { hl = "AlphaEyes", position = "center" } },
-      { type = "text", val = "   ⠀⠀⠀⢀⣘⠈⢂⠃⣧⡹⣿⣷⡄⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣮⣅⡙⢿⣟⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⡕⠂     ", opts = { hl = "AlphaEyes", position = "center" } },
       { type = "text", val = "   ⠀⠀⠀⠀⠀⠀⠛⢷⣜⢷⡌⠻⣿⣿⣦⣝⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣹⣷⣦⣹⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠉⠃⠀     ", opts = { hl = "AlphaEyes", position = "center" } },
       { type = "text", val = "•─────────────────────────────────⋅☾ ☽⋅─────────────────────────────────•", opts = { hl = "AlphaLines", position = "center" } },
       { type = "text", val = "       ▄▄▄    ▄▄▄  ▄▄▄▄▄▄▄   ▄▄▄▄▄   ▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄ ▄▄▄      ▄▄▄       ", opts = { hl = "AlphaLogo1", position = "center" } },

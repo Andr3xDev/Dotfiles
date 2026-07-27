@@ -65,16 +65,13 @@ Item {
                             Theme.ThemeManager.colors.surface.secondary.g,
                             Theme.ThemeManager.colors.surface.secondary.b, 0.5)
                     if (delegateRoot.isSelected)
-                        return Qt.rgba(
-                            Theme.ThemeManager.colors.accent.primary.r,
-                            Theme.ThemeManager.colors.accent.primary.g,
-                            Theme.ThemeManager.colors.accent.primary.b, 0.2)
+                        return Theme.ThemeManager.colors.accentMuted
                     return Theme.ThemeManager.colors.surface.primary
                 }
                 border.width: delegateRoot.isSelected ? 2 : 1
                 border.color: delegateRoot.isSelected
-                    ? Theme.ThemeManager.colors.accent.primary
-                    : Theme.ThemeManager.colors.highlight.medium
+                    ? Theme.ThemeManager.colors.accent
+                    : Theme.ThemeManager.colors.border
 
                 opacity: delegateRoot.isDisabled ? 0.4 : 1.0
 

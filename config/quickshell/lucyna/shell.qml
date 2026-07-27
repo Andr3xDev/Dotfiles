@@ -48,7 +48,7 @@ ShellRoot {
     // Theme Launcher - Toggle via: qs ipc call themeLauncher.toggle
     ThemeLauncher {
         id: themeLauncher
-        externalScriptPath: Quickshell.env("HOME") + "/.config/quickshell/lucyna/scripts/apply-theme.sh"
+        externalScriptPath: Quickshell.shellDir + "/scripts/apply-theme.sh"
     }
 
     // App Launcher - Toggle with hyprctl dispatch
