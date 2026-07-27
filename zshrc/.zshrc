@@ -1,47 +1,26 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="false"
 
-# Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# reminder to update
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# disable colors in ls.
+DISABLE_LS_COLORS="false"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# command auto-correction.
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -107,14 +86,25 @@ source $ZSH/oh-my-zsh.sh
 #precmd() {
 #  printf '\e[5 q'
 #}
-if [[ -n "$TMUX" ]]; then
-  # Ejecutar al iniciar
-  printf '\e[5 q'
-
-  # Ejecutar en cada prompt
-  precmd() {
-    printf '\e[5 q'
-  }
-fi
 
 eval "$(starship init zsh)"
+export PATH="$HOME/.local/bin:$PATH"
+
+[ -f ~/.secrets ] && source ~/.secrets
+export PATH="$HOME/.local/bin:$PATH"
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[command]='fg=5'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=5'
+ZSH_HIGHLIGHT_STYLES[function]='fg=5'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=5'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=5'
+
+export LS_COLORS="di=01;94:ln=01;36:ex=01;95:or=40;31;01:pi=01;33:so=01;95:bd=01;33:cd=01;33:su=37;41:sg=30;43:tw=30;42:ow=34;42"
+
+
+# editor varialbles
+export EDITOR=nvim
+export VISUAL=nvim
+alias vim=nvim
+alias vi=nvim
