@@ -22,7 +22,7 @@ return {
 	highlight3 = "rgb(516e7a)", -- strong_selection
 
 	-- Wallpaper
-	wallpaper = "~/.config/wallpapers/vogabond.jpg",
+	wallpaper = "~/.config/wallpapers/tkg.jpg",
 
 	-- Border configuration
 	border_active   = "rgb(1d2c34)", -- Gray focus          ($highlight3)
