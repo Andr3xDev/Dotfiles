@@ -17,6 +17,20 @@ return {
       desc = "Add file",
     },
     {
+      "<leader>ad",
+      function()
+        require("harpoon"):list():remove()
+      end,
+      desc = "Remove file",
+    },
+    {
+      "<leader>ah",
+      function()
+        require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+      end,
+      desc = "Toggle menu",
+    },
+    {
       "<leader>al",
       function()
         local harpoon = require("harpoon")

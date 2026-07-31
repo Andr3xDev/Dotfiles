@@ -92,7 +92,7 @@ return {
         select_first_entry = { lhs = "[Q", desc = "First changed file" },
         select_last_entry = { lhs = "]Q", desc = "Last changed file" },
         close_review_tab = { lhs = "<C-c>", desc = "Close review tab" },
-        toggle_viewed = { lhs = "<leader>tv", desc = "Toggle viewed" },
+        toggle_viewed = { lhs = "<leader>otv", desc = "Toggle viewed" },
         goto_file = { lhs = "gf", desc = "Go to file" },
       },
     },

@@ -24,7 +24,7 @@ return {
         { "<leader>x", group = "diagnostics" },
         { "<leader>u", group = "ui" },
         { "<leader>q", group = "session" },
-        { "<leader>s", group = "surround" },
+        { "<leader>s", group = "search/replace" },
       },
       -- Surround
       {
@@ -40,6 +40,8 @@ return {
       -- Harpoon
       {
         { "<leader>aa", desc = "Add file", mode = "n" },
+        { "<leader>ad", desc = "Remove file", mode = "n" },
+        { "<leader>ah", desc = "Toggle menu", mode = "n" },
         { "<leader>al", desc = "List files", mode = "n" },
         { "<leader>1", desc = "Harpoon 1", mode = "n" },
         { "<leader>2", desc = "Harpoon 2", mode = "n" },
@@ -50,8 +52,6 @@ return {
       {
         { "<leader>xx", desc = "Diagnostics", mode = "n" },
         { "<leader>xX", desc = "Buffer diagnostics", mode = "n" },
-        { "<leader>xs", desc = "Symbols", mode = "n" },
-        { "<leader>xl", desc = "LSP references", mode = "n" },
         { "<leader>xL", desc = "Location list", mode = "n" },
         { "<leader>xQ", desc = "Quickfix list", mode = "n" },
       },
@@ -104,7 +104,6 @@ return {
         { "<leader>fr", desc = "Recent Files", mode = "n" },
         { "<leader>fc", desc = "Commands", mode = "n" },
         { "<leader>fd", desc = "Diagnostics", mode = "n" },
-        { "<leader>fs", desc = "Document Symbols", mode = "n" },
       },
       -- Code / LSP
       {

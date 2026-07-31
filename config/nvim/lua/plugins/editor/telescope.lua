@@ -21,7 +21,6 @@ return {
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
     { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-    { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   },
   config = function()
     local telescope = require("telescope")
