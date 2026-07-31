@@ -19,8 +19,8 @@ overall = { bg = "#F0F3F4" }
 [mgr]
 cwd = { fg = "#0D9488" }
 
-find_keyword = { fg = "#0D9488", bold = true, italic = true, underline = true }
-find_position = { fg = "#6B3D7B", bg = "reset", bold = true, italic = true }
+find_keyword = { fg = "#8A5A1D", bold = true, italic = true, underline = true }
+find_position = { fg = "#2E8A63", bg = "reset", bold = true, italic = true }
 
 symlink_target = { italic = true }
 
