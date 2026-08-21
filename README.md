@@ -1,5 +1,5 @@
 <div align="center">
-    <h1 align="center">hypr-abysal</h1>
+    <h1 align="center">HYPR - ABYSAL</h1>
     <p align="center">
         Andr3x's Hyprland dotfiles, built around the Abysal color system. Minimal, fast, and tuned for long sessions.
     </p>
@@ -181,7 +181,7 @@ Preview images will be published here once ready.
 | **Editor**        | [Neovim](https://neovim.io/)                                             |
 | **Notifications** | [Dunst](https://dunst-project.org/)                                      |
 | **App Launcher**  | QuickShell Launcher                                                      |
-| **Wallpaper**     | awww                                                                     |
+| **Wallpaper**     | [awww](https://codeberg.org/LGFae/awww)                                                                     |
 | **File Manager**  | [Yazi](https://github.com/sxyazi/yazi)                                   |
 | **Browser**       | [Firefox](https://www.mozilla.org/firefox/)                              |
 
