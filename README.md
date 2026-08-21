@@ -5,9 +5,8 @@
     </p>
     <p align="center">
         <a href="https://archlinux.org/"><img src="https://img.shields.io/badge/Arch_Linux-0E161A?style=for-the-badge&logo=arch-linux&logoColor=2DD4BF&labelColor=0E161A&color=152025" alt="Arch Linux"></a>
-        <a href="https://hyprland.org/"><img src="https://img.shields.io/badge/Hyprland-0E161A?style=for-the-badge&logo=wayland&logoColor=2DD4BF&labelColor=0E161A&color=152025" alt="Hyprland"></a>
-        <a href="config/quickshell/lucyna"><img src="https://img.shields.io/badge/Shell-Lucyna-0E161A?style=for-the-badge&labelColor=0E161A&color=152025" alt="Shell: Lucyna"></a>
         <a href="https://github.com/Andr3xDev/hypr-abysal/stargazers"><img src="https://img.shields.io/github/stars/Andr3xDev/hypr-abysal?style=for-the-badge&color=152025&labelColor=0E161A" alt="Stars"></a>
+        <a href="https://hyprland.org/"><img src="https://img.shields.io/badge/Hyprland-0E161A?style=for-the-badge&logo=wayland&logoColor=2DD4BF&labelColor=0E161A&color=152025" alt="Hyprland"></a>
     </p>
 </div>
 
