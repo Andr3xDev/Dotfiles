@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# Yazi opener helper: compresses selected files/dirs into a single .tar.gz
+
+# ---------------------------------------------------------------------------
+# Compress Tar
+# Yazi opener helper that compresses selected files/dirs into a single .tar.gz
+# ---------------------------------------------------------------------------
+
 set -euo pipefail
 
 if [ $# -eq 0 ]; then

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Startpage Theme Switcher
+# Applies the themed wallpaper as the startpage background image
+# ---------------------------------------------------------------------------
+
 THEME="$1"
 WALLS_DIR="$HOME/.config/wallpapers"
 DEST="$HOME/.config/startpage/current_wallpaper.png"

@@ -1,3 +1,8 @@
+-- ---------------------------------------------------------------------------
+-- Neovim Entry Point
+-- Loads core config modules and bootstraps the lazy.nvim plugin manager
+-- ---------------------------------------------------------------------------
+
 require("config.options")
 require("config.keyblinds")
 require("config.autocmds")

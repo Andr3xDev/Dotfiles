@@ -1,4 +1,8 @@
+-- ---------------------------------------------------------------------------
 -- Abysal Obsidian
+-- Color palette and UI tokens for the Abysal Obsidian theme
+-- ---------------------------------------------------------------------------
+
 return {
 	-- Base colors
 	base    = "rgb(0e161a)", -- main_background

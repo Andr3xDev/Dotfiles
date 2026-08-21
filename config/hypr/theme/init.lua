@@ -1,15 +1,7 @@
---[[
-	Theme Selector
-	Resolves the active theme by reading the state file.
-	Falls back to the default theme if the state file is missing or invalid.
-
-	Extensible pattern: the same state file can later hold monitor
-	profiles, layout presets, or any other dynamic configuration.
-
-	Usage:
-		local theme = require("theme")
-		print(theme.base) --> "rgb(1c1c1c)"
-]]
+-- ---------------------------------------------------------------------------
+-- Theme Selector
+-- Resolves the active theme by reading the state file, falling back to default
+-- ---------------------------------------------------------------------------
 
 local HOME         = os.getenv("HOME")
 local STATE_FILE   = HOME .. "/.config/hypr/theme/state.lua"

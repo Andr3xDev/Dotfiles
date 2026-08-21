@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Kotofetch Theme Switcher
+# Applies the themed kotofetch config by swapping the active toml file
+# ---------------------------------------------------------------------------
+
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
 
 THEME_NAME="${1:-}"

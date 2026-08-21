@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# VSCode Theme Switcher
+# Sets the active color theme in VSCode's user settings.json
+# ---------------------------------------------------------------------------
+
 FILE="$HOME/.config/Code/User/settings.json"
 THEME=""
 

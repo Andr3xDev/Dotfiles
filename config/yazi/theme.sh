@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Yazi Theme Switcher
+# Applies the themed flavor by writing the active theme.toml file
+# ---------------------------------------------------------------------------
+
 THEME_FILE="$HOME/.config/yazi/theme.toml"
 THEME_NAME="${1}"
 
