@@ -1,29 +1,28 @@
 <div align="center">
-    <h1 align="center">HyprPharch</h1>
+    <h1 align="center">HYPR - ABYSAL</h1>
     <p align="center">
-        Andr3x's Hyprland Dotfiles - A functional,minimal and aesthetic Arch Linux setup
+        Andr3x's Hyprland dotfiles, built around the Abysal color system. Minimal, fast, and tuned for long sessions.
     </p>
     <p align="center">
-        <a href="https://archlinux.org/"><img src="https://img.shields.io/badge/Arch_Linux-282828?style=for-the-badge&logo=arch-linux&logoColor=45707" alt="Arch Linux"></a>
-        <a href="https://hyprland.org/"><img src="https://img.shields.io/badge/Hyprland-282828?style=for-the-badge&logo=wayland&logoColor=89b482" alt="Hyprland"></a>
-        <a href="config/quickshell/lucyna"><img src="https://img.shields.io/badge/Version-Lucyna_2.0-1b1b1b?style=for-the-badge&labelColor=282828" alt="Version: Lucyna"></a>
-        <a href="https://github.com/Andr3xDev/HyprPharch/stargazers"><img src="https://img.shields.io/github/stars/Andr3xDev/HyprPharch?style=for-the-badge&color=1b1b1b&labelColor=282828" alt="Stars"></a>
+        <a href="https://archlinux.org/"><img src="https://img.shields.io/badge/Arch_Linux-0E161A?style=for-the-badge&logo=arch-linux&logoColor=2DD4BF&labelColor=0E161A&color=152025" alt="Arch Linux"></a>
+        <a href="https://github.com/Andr3xDev/hypr-abysal/stargazers"><img src="https://img.shields.io/github/stars/Andr3xDev/hypr-abysal?style=for-the-badge&color=152025&labelColor=0E161A" alt="Stars"></a>
+        <a href="https://hyprland.org/"><img src="https://img.shields.io/badge/Hyprland-0E161A?style=for-the-badge&logo=wayland&logoColor=2DD4BF&labelColor=0E161A&color=152025" alt="Hyprland"></a>
     </p>
 </div>
 
 <br>
 <br>
 
-## Lucyna config
+## About
 
-This configuration is designed for **Arch Linux with Hyprland** and introduces **Lucyna**, a theme created by me and focused on **minimalism, functionality, and elegance**. It is built for long sessions in front of the screen, prioritizing visual comfort, low visual fatigue, and clarity while keeping the setup lightweight and practical.
+This configuration is built for **Hyprland**, primarily targeting **Arch and Arch-based distributions** (Arch is the reference platform, and the install script only supports it). It runs a modern QuickShell status bar, stays light on resources, and ships with an automated install script for the full environment. Each piece (Hyprland config, QuickShell shell, terminal, editor setup, etc.) is a standalone dotfile, so individual components can be adapted to other distros or window managers manually; that's just outside what the automated installer covers.
 
-Lucyna is powered by **Abysal Theme** — my personal color palette designed from scratch for this setup. The goal of the palette is to keep a calm, consistent, and readable visual language across desktop applications and development tools.
+The visual identity runs on **Abysal**, a personal color palette I designed and maintain across my own tools. It's not tied to this repo specifically. I keep several projects around it and I'm actively expanding it to more surfaces over time.
 
 It defines two variants:
 
--   **Obsidian** — dark mode
--   **Marble** — light mode
+-   **Obsidian**: dark mode
+-   **Marble**: light mode
 
 #### Related Projects
 
@@ -32,33 +31,21 @@ It defines two variants:
 
 <br>
 
-> **⚠️ Important Note:**  
-> These dotfiles are primarily designed for **Arch Linux with Hyprland**. While some adaptations can be made for other distributions or window managers, such customizations are beyond the scope of the installation script. You may need to manually adjust configurations for other setups.
-
-<br>
-
-### Key Features
-
--   **Abysal Theme**: Custom palette — Obsidian (Dark) & Marble (Light)
--   **QuickShell Bar**: Modern, customizable, and performant status bar
--   **Optimized Performance**: Minimal resource usage with maximum functionality
--   **Easy Theme Switching**: Change themes on the fly with a simple keybind
--   **Highly Configurable**: Extensive customization options
--   **Automated Installation**: One script setup for the entire environment
+> **⚠️ Important Note:**
+> This configuration as a whole (installer + full dotfile set) is built and tested for **Arch-based distributions**. Individual pieces are plain config files, so they can be reused on other distros or compositors, but you'll need to wire them up manually, that's beyond what the installer handles.
 
 <br>
 <br>
 
 ## Gallery
 
-### Abysal Theme
-
-Lucyna is the first theme built on top of **Abysal**, a personal color palette created from scratch. Preview images will be published here once the theme is ready.
+Preview images will be published here once ready.
 
 <table>
   <tr>
     <td width="50%" align="center">
-
+      <!-- TODO: Add Obsidian preview image -->
+      <br><b>Obsidian (Dark)</b>
     </td>
     <td width="50%" align="center">
       <!-- TODO: Add Marble preview image -->
@@ -180,36 +167,36 @@ Lucyna is the first theme built on top of **Abysal**, a personal color palette c
 <br>
 <br>
 
- 
-
 ## Tech Stack
 
 ### Core Components
 
-| Category          | Tool                                                                                       |
-| ----------------- | ------------------------------------------------------------------------------------------ |
-| **Compositor**    | [Hyprland](https://hyprland.org/)                                                          |
-| **Bar**           | [QuickShell](https://github.com/quickshell-mirror/quickshell)                              |
-| **Terminal**      | [Ghostty](https://ghostty.org/)                                                             |
-| **Shell**         | [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/)                               |
-| **Editor**        | [Neovim](https://neovim.io/) / [VSCode](https://code.visualstudio.com/)                    |
-| **Notifications** | [Dunst](https://dunst-project.org/)                                                        |
-| **Launcher**      | QuickShell Launcher                                                                          |
-| **Wallpaper**     | [SWWW](https://github.com/LGFae/swww)                                                      |
-| **File Manager**  | [Yazi](https://github.com/sxyazi/yazi)                                                      |
-| **Browser**       | [Firefox](https://www.mozilla.org/firefox/)                                                |
+| Category          | Tool                                                                     |
+| ------------------ | ------------------------------------------------------------------------ |
+| **Compositor**    | [Hyprland](https://hyprland.org/)                                        |
+| **Bar / Shell**   | [QuickShell](https://github.com/quickshell-mirror/quickshell) (Lucyna)   |
+| **Terminal**      | [Ghostty](https://ghostty.org/)                                          |
+| **Shell**         | [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/)             |
+| **Multiplexer**   | [tmux](https://github.com/tmux/tmux)                                     |
+| **Editor**        | [Neovim](https://neovim.io/)                                             |
+| **Notifications** | [Dunst](https://dunst-project.org/)                                      |
+| **App Launcher**  | QuickShell Launcher                                                      |
+| **Wallpaper**     | [awww](https://codeberg.org/LGFae/awww)                                                                     |
+| **File Manager**  | [Yazi](https://github.com/sxyazi/yazi)                                   |
+| **Browser**       | [Firefox](https://www.mozilla.org/firefox/)                              |
 
 ### System Tools
 
 | Category            | Tools                              |
-| ------------------- | ---------------------------------- |
+| ------------------- | ----------------------------------- |
 | **Lock/Idle**       | Hyprlock, Hypridle                 |
-| **Screenshots**     | Hyprshot, Grim, Slurp              |
+| **Screenshots**     | Hyprshot, Grim, Slurp, Satty       |
 | **Color Picker**    | Hyprpicker                         |
+| **Clipboard**       | wl-clipboard, Cliphist             |
 | **Audio**           | PipeWire, WirePlumber, Pavucontrol |
 | **Bluetooth**       | Bluez, Bluetui                     |
 | **Network**         | NetworkManager, nmtui              |
-| **System Monitor**  | btop, htop                         |
+| **System Monitor**  | btop                               |
 | **Fetch Tools**     | Fastfetch, Kotofetch               |
 | **Display Manager** | Ly                                 |
 
@@ -222,12 +209,12 @@ wl-clipboard, cliphist, unzip, 7zip
 
 ### Themes & Appearance
 
-| Component         | Options                                                    |
-| ----------------- | ---------------------------------------------------------- |
-| **Theme Palette** | Abysal Theme: Obsidian (Dark), Marble (Light)              |
-| **Icon Theme**    | Papirus                                                    |
-| **Cursor Themes** | Phinger                                                    |
-| **Fonts**         | JetBrains Mono Nerd Font, Font Awesome |
+| Component         | Options                                        |
+| ------------------ | ----------------------------------------------- |
+| **Color Palette** | Abysal: Obsidian (Dark), Marble (Light)         |
+| **Icon Theme**    | Papirus                                         |
+| **Cursor Theme**  | Phinger                                         |
+| **Fonts**         | JetBrains Mono Nerd Font, Font Awesome          |
 
 ### Optional Applications
 
@@ -237,7 +224,6 @@ wl-clipboard, cliphist, unzip, 7zip
 -   Spotify + Spicetify
 -   LibreOffice
 -   OBS Studio
--   GIMP, VLC
 -   Steam (optional)
 -   Docker (optional)
 
@@ -258,13 +244,11 @@ sudo pacman -S git
 
 ## Quick Install
 
-The automated installation script provides two modes:
-
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/Andr3xDev/HyprPharch.git
-cd HyprPharch/scripts
+git clone https://github.com/Andr3xDev/hypr-abysal.git
+cd hypr-abysal
 ```
 
 2. **Run the installation script**
@@ -273,18 +257,13 @@ cd HyprPharch/scripts
 ./scripts/install.sh
 ```
 
-3. **Choose your installation mode**
+3. **Follow the prompts**
 
-    - **Full Installation**: Complete setup with personal apps (Discord, Spotify, etc.)
-    - **Basic Installation**: Minimal setup with essential tools only
+    - Essential packages install automatically
+    - Optional components (GTK themes, GPU drivers, dev tools, Spotify, Steam) ask for confirmation
+    - Dotfiles are copied and Zsh is configured at the end
 
-4. **Follow the prompts**
-
-    - The script will ask for confirmation before installing optional components
-    - Configure drivers (Intel/NVIDIA) if needed
-    - Set up development tools (Docker, npm, etc.) if desired
-
-5. **Reboot and enjoy!**
+4. **Reboot and enjoy!**
 
 ```bash
 reboot
@@ -294,53 +273,19 @@ After rebooting, select Hyprland from the Ly display manager.
 
 ### Manual Installation
 
-For advanced users who want more control:
-
-1. **Clone the repository**
+For advanced users who want more control, read through [`scripts/install.sh`](scripts/install.sh) and run the individual steps (`install-paru.sh`, `install-gtk.sh`, `install-os-config.sh`, `install-spotify.sh`, `configure-zsh.sh`) as needed, then copy the configs manually:
 
 ```bash
-git clone https://github.com/Andr3xDev/HyprPharch.git
-cd HyprPharch
-```
+git clone https://github.com/Andr3xDev/hypr-abysal.git
+cd hypr-abysal
 
-2. **Install base packages**
-
-```bash
-sudo pacman -S --needed base base-devel linux linux-firmware linux-headers linux-zen linux-zen-headers efibootmgr dkms git wget nano vim neovim tree smartmontools networkmanager network-manager-applet iwd pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber bluez bluez-utils bluetui brightnessctl grim slurp sof-firmware python-gobject qt5-wayland qt6-wayland zram-generator noto-fonts-emoji noto-fonts-cjk dosfstools bridge-utils dnsmasq sudo npm hyprland hypridle hyprlock hyprpicker hyprshot dunst swww xdg-desktop-portal-hyprland xdg-desktop-portal-gnome polkit-gnome polkit-kde-agent xdg-utils uwsm quickshell kitty zsh starship fzf lsd btop htop fastfetch yazi ghostty gtk3 gtk4 nwg-look sassc ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols woff2-font-awesome firefox pavucontrol mpv power-profiles-daemon ly xorg-server xorg-xinit intel-media-driver intel-ucode vulkan-intel lib32-vulkan-intel libva-intel-driver vulkan-tools nvidia-open-dkms lib32-nvidia-utils libva-nvidia-driver steam lib32-mesa docker docker-buildx docker-compose discord spotify-launcher libreoffice-fresh obs-studio proton-vpn-gtk-app
-```
-
-3. **Install AUR helper and packages**
-
-```bash
-# Install Paru
-cd /tmp
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-
-# Install AUR packages
-paru -S --needed kotofetch phinger-cursors visual-studio-code-bin spicetify-cli gearlever opencode-bin
-```
-
-4. **Copy configurations**
-
-```bash
 # Backup existing configs (optional)
 cp -r ~/.config ~/.config.backup-$(date +%Y%m%d-%H%M%S)
 
 # Copy dotfiles
 cp -r config/* ~/.config/
-```
 
-5. **Enable services**
-
-```bash
 sudo systemctl enable NetworkManager bluetooth
-```
-
-6. **Reboot**
-
-```bash
 sudo reboot
 ```
 
@@ -349,63 +294,75 @@ sudo reboot
 
 ## Keybindings
 
-> **Note:** All keybindings can be customized in [config/hypr/configs/keyblinds.conf](config/hypr/configs/keyblinds.conf)
+> **Note:** All keybindings are defined in [config/hypr/configs/keyblinds.lua](config/hypr/configs/keyblinds.lua)
 
 ### Essential Shortcuts
 
-| Keybind                 | Action                      |
-| ----------------------- | --------------------------- |
-| `SUPER + Enter`         | Open terminal (floating)    |
-| `SUPER + SHIFT + Enter` | Open terminal (fullscreen)  |
+| Keybind                 | Action                    |
+| ------------------------ | -------------------------- |
+| `SUPER + Enter`         | Open terminal              |
+| `SUPER + SHIFT + Enter` | Open terminal (tiled)      |
 | `SUPER + Q`             | Close window                |
+| `SUPER + SHIFT + Q`     | Kill window                 |
 | `SUPER + SHIFT + F`     | Toggle fullscreen           |
 | `SUPER + V`             | Toggle floating             |
-| `SUPER + Space`         | QuickShell launcher         |
+| `SUPER + Space`         | QuickShell launcher          |
 | `SUPER + Backspace`     | Power menu                  |
+| `SUPER + R`             | Reload QuickShell             |
+| `SUPER + SHIFT + R`     | Reload Hyprland              |
 
-### Applications
+### Apps submap (`SUPER + A`)
 
-| Keybind             | Action                           |
-| ------------------- | -------------------------------- |
-| `SUPER + E`         | Terminal file manager (Yazi)     |
-| `SUPER + I`         | System monitor (btop)            |
-| `SUPER + SHIFT + I` | System fetch                     |
-| `SUPER + B`         | Bluetooth manager                |
-| `SUPER + N`         | Network manager                  |
-| `SUPER + P`         | Color picker                     |
-| `SUPER + T`         | Screenshot (region to clipboard) |
-| `SUPER + SHIFT + T` | Screenshot (region to file)      |
-| `SUPER + CTRL + T`  | Screenshot GUI (Flameshot)       |
+| Key        | Action                          |
+| ---------- | -------------------------------- |
+| `E`        | File manager (Yazi)               |
+| `I`        | System monitor (btop)             |
+| `F`        | System fetch (Kotofetch)          |
+| `B`        | Bluetooth manager (Bluetui)       |
+| `N`        | Network manager (nmtui)            |
+| `M`        | Monitor manager                   |
+| `C`        | Clipboard history                  |
+| `G`        | Calendar                           |
+| `Escape` / `Return` | Exit submap              |
+
+### Screenshots submap (`SUPER + T`)
+
+| Key                  | Action                       |
+| --------------------- | ------------------------------ |
+| `T`                  | Region → clipboard              |
+| `S`                  | Region → file                   |
+| `E`                  | Region → edit (Satty)           |
+| `P`                  | Color picker (Hyprpicker)       |
+| `Escape` / `Space` / `Return` | Exit submap        |
 
 ### Window Management
 
-| Keybind                   | Action                   |
-| ------------------------- | ------------------------ |
-| `SUPER + H/J/K/L`         | Move focus (vim-style)   |
-| `SUPER + SHIFT + H/J/K/L` | Move window              |
-| `SUPER + CTRL + H/J/K/L`  | Resize window            |
-| `SUPER + 1-9`             | Switch to workspace      |
-| `SUPER + SHIFT + 1-9`     | Move window to workspace |
-| `SUPER + S`               | Toggle scratchpad        |
-| `SUPER + Tab`             | Previous workspace       |
+| Keybind                   | Action                            |
+| --------------------------- | ------------------------------------ |
+| `SUPER + H/J/K/L`         | Move focus (vim-style)               |
+| `SUPER + SHIFT + H/J/K/L` | Move window                          |
+| `SUPER + CTRL + V`        | Enter resize submap (H/J/K/L to resize) |
+| `SUPER + 0-9`             | Switch to workspace                  |
+| `SUPER + SHIFT + 0-9`     | Move window to workspace             |
+| `SUPER + S`               | Toggle scratchpad                     |
+| `SUPER + SHIFT + S`       | Move window to scratchpad             |
+| `SUPER + Tab`             | Previous workspace                    |
+| `SUPER + G`               | Grab rogue windows to current workspace |
+| `SUPER + CTRL + L/H`      | Swap workspace with next/prev monitor |
+| `SUPER + CTRL + SHIFT + L/H` | Swap full monitor deck            |
+| `SUPER + mouse:left`      | Drag window                           |
+| `SUPER + mouse:right`     | Resize window                         |
 
-### Theme & System
-
-| Keybind             | Action                |
-| ------------------- | --------------------- |
-| `SUPER + Y`         | Theme launcher        |
-| `SUPER + R`         | Reload QuickShell     |
-| `SUPER + SHIFT + R` | Reload Hyprland       |
-
-### Media Controls
+### Media & Special Keys
 
 | Keybind                 | Action              |
-| ----------------------- | ------------------- |
-| `XF86AudioRaiseVolume`  | Increase volume     |
-| `XF86AudioLowerVolume`  | Decrease volume     |
-| `XF86AudioMute`         | Toggle mute         |
-| `XF86MonBrightnessUp`   | Increase brightness |
-| `XF86MonBrightnessDown` | Decrease brightness |
+| ------------------------- | --------------------- |
+| `XF86AudioRaiseVolume`  | Increase volume       |
+| `XF86AudioLowerVolume`  | Decrease volume       |
+| `XF86AudioMute`         | Toggle mute            |
+| `XF86MonBrightnessUp`   | Increase brightness    |
+| `XF86MonBrightnessDown` | Decrease brightness    |
+| `XF86PowerOff`          | Power menu              |
 
 <br>
 <br>
@@ -436,13 +393,13 @@ Theming requires changes in multiple locations:
 <details>
 <summary><b>Can I use these dotfiles on other distributions?</b></summary>
 
-These dotfiles are designed for **Arch Linux with Hyprland**. You can adapt them, but:
+The full setup (installer plus the whole config set) is built and tested for **Arch-based distributions with Hyprland**. That said, every config in `config/` is a plain dotfile, so individual pieces (Ghostty, Yazi, btop, Starship, Neovim, etc.) can be copied and used on any distro or window manager, Hyprland-independent ones especially.
 
--   Installation script only works on Arch (uses `pacman` and `paru`)
--   Configurations are Hyprland-specific
--   Requires Wayland compatibility
+-   Installation script only works on Arch-based systems (uses `pacman` and `paru`)
+-   Hyprland-specific configs require Wayland + Hyprland
+-   Non-Hyprland-specific configs (terminal, shell, editor, CLI tools) work anywhere
 
-**For other distros**: Manually copy configs and install equivalent packages.
+**For other distros**: pick the configs you want, copy them manually, install equivalent packages yourself.
 
 </details>
 
@@ -450,7 +407,7 @@ These dotfiles are designed for **Arch Linux with Hyprland**. You can adapt them
 <summary><b>How do I configure brightness controls?</b></summary>
 
 1. Find your backlight device: `ls /sys/class/backlight/`
-2. Edit [`config/hypr/configs/keyblinds.conf`](config/hypr/configs/keyblinds.conf)
+2. Edit [`config/hypr/configs/keyblinds.lua`](config/hypr/configs/keyblinds.lua)
 3. Replace `intel_backlight` with your device name
 
 </details>
@@ -479,7 +436,7 @@ These dotfiles are **moderately coupled** but allow extensibility:
 If the QuickShell bar does not appear, check the following:
 
 1. **Where QuickShell starts:** The startup and configuration files are in `config/quickshell/lucyna/`.
-2. **Check Hypr autostart:** Ensure `exec-once = quickshell --config lucyna` is present in `config/hypr/configs/apps.conf`.
+2. **Check Hypr autostart:** Ensure `hl.exec_cmd("quickshell --config lucyna &")` is present in `config/hypr/configs/apps.lua`.
 3. **Restart QuickShell:** Use `SUPER + R` or run `killall quickshell && quickshell --config lucyna &`.
 
 </details>
@@ -512,12 +469,12 @@ These are previous versions of these dotfiles. I keep iterating based on persona
 
 ### Lucy Version
 
-> **⚠️ No longer maintained** - Available on the [`lucy`](https://github.com/Andr3xDev/HyprPharch/tree/lucy) branch
+> **⚠️ No longer maintained** - Available on the [`lucy`](https://github.com/Andr3xDev/hypr-abysal/tree/lucy) branch
 
-Lucy 1.0 includes the older theme set (**Gruvbox Material** and **Rose Pine** in dark/light variants). It is preserved below for comparison with the new theme generation.
+Lucy 1.0 includes the older theme set (**Gruvbox Material** and **Rose Pine** in dark/light variants). It is preserved below for comparison with the current generation.
 
 ```bash
-git clone -b lucy https://github.com/Andr3xDev/HyprPharch.git
+git clone -b lucy https://github.com/Andr3xDev/hypr-abysal.git
 ```
 
 <details>
@@ -687,12 +644,12 @@ git clone -b lucy https://github.com/Andr3xDev/HyprPharch.git
 
 ### Legacy Version
 
-> **⚠️ No longer maintained** - Available on the [`legacy`](https://github.com/Andr3xDev/HyprPharch/tree/legacy) branch
+> **⚠️ No longer maintained** - Available on the [`legacy`](https://github.com/Andr3xDev/hypr-abysal/tree/legacy) branch
 
 The legacy version uses **Waybar**. While no longer actively maintained, it remains available for those who prefer Waybar.
 
 ```bash
-git clone -b legacy https://github.com/Andr3xDev/HyprPharch.git
+git clone -b legacy https://github.com/Andr3xDev/hypr-abysal.git
 ```
 
 <details>
@@ -763,11 +720,11 @@ Contributions are welcome and appreciated! Whether it's bug fixes, new features,
 
 If you encounter any problems:
 
-1. Check existing [issues](https://github.com/Andr3xDev/HyprPharch/issues) first
+1. Check existing [issues](https://github.com/Andr3xDev/hypr-abysal/issues) first
 2. Create a new issue with:
   - Clear description of the problem
   - Steps to reproduce
-  - System information (Arch version, hardware, etc.)
+  - System information (distro, hardware, etc.)
   - Relevant logs or error messages
 
 ### Code Style
@@ -784,3 +741,5 @@ If you encounter any problems:
 
 Distributed under License. See [`LICENSE`](LICENSE) for more information.
 This means you can use or modify keeping it open source.
+</content>
+</invoke>
