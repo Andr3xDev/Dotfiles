@@ -1,7 +1,7 @@
 <div align="center">
     <h1 align="center">hypr-abysal</h1>
     <p align="center">
-        Andr3x's Hyprland dotfiles, built around the Abysal color system — minimal, fast, and tuned for long sessions.
+        Andr3x's Hyprland dotfiles, built around the Abysal color system. Minimal, fast, and tuned for long sessions.
     </p>
     <p align="center">
         <a href="https://archlinux.org/"><img src="https://img.shields.io/badge/Arch_Linux-0E161A?style=for-the-badge&logo=arch-linux&logoColor=2DD4BF&labelColor=0E161A&color=152025" alt="Arch Linux"></a>
@@ -15,14 +15,14 @@
 
 ## About
 
-This configuration is built for **Hyprland**, primarily targeting **Arch and Arch-based distributions** (Arch is the reference platform, and the install script only supports it). Each piece; Hyprland config, QuickShell shell, terminal, editor setup, etc; is a standalone dotfile, so individual components can be adapted to other distros or window managers manually; that's just outside what the automated installer covers.
+This configuration is built for **Hyprland**, primarily targeting **Arch and Arch-based distributions** (Arch is the reference platform, and the install script only supports it). It runs a modern QuickShell status bar, stays light on resources, and ships with an automated install script for the full environment. Each piece (Hyprland config, QuickShell shell, terminal, editor setup, etc.) is a standalone dotfile, so individual components can be adapted to other distros or window managers manually; that's just outside what the automated installer covers.
 
 The visual identity runs on **Abysal**, a personal color palette I designed and maintain across my own tools. It's not tied to this repo specifically. I keep several projects around it and I'm actively expanding it to more surfaces over time.
 
 It defines two variants:
 
--   **Obsidian** — dark mode
--   **Marble** — light mode
+-   **Obsidian**: dark mode
+-   **Marble**: light mode
 
 #### Related Projects
 
@@ -33,16 +33,6 @@ It defines two variants:
 
 > **⚠️ Important Note:**
 > This configuration as a whole (installer + full dotfile set) is built and tested for **Arch-based distributions**. Individual pieces are plain config files, so they can be reused on other distros or compositors, but you'll need to wire them up manually, that's beyond what the installer handles.
-
-<br>
-
-### Key Features
-
--   **Abysal Palette**: Obsidian (Dark) & Marble (Light) color variants
--   **QuickShell Bar**: Modern, customizable, and performant status bar
--   **Optimized Performance**: Minimal resource usage with maximum functionality
--   **Highly Configurable**: Extensive customization options
--   **Automated Installation**: One script setup for the entire environment
 
 <br>
 <br>
@@ -190,8 +180,8 @@ Preview images will be published here once ready.
 | **Multiplexer**   | [tmux](https://github.com/tmux/tmux)                                     |
 | **Editor**        | [Neovim](https://neovim.io/)                                             |
 | **Notifications** | [Dunst](https://dunst-project.org/)                                      |
-| **App Launcher**  | [Rofi](https://github.com/davatorium/rofi) / QuickShell Launcher         |
-| **Wallpaper**     | [SWWW](https://github.com/LGFae/swww)                                    |
+| **App Launcher**  | QuickShell Launcher                                                      |
+| **Wallpaper**     | awww                                                                     |
 | **File Manager**  | [Yazi](https://github.com/sxyazi/yazi)                                   |
 | **Browser**       | [Firefox](https://www.mozilla.org/firefox/)                              |
 
@@ -221,7 +211,7 @@ wl-clipboard, cliphist, unzip, 7zip
 
 | Component         | Options                                        |
 | ------------------ | ----------------------------------------------- |
-| **Color Palette** | Abysal — Obsidian (Dark), Marble (Light)        |
+| **Color Palette** | Abysal: Obsidian (Dark), Marble (Light)         |
 | **Icon Theme**    | Papirus                                         |
 | **Cursor Theme**  | Phinger                                         |
 | **Fonts**         | JetBrains Mono Nerd Font, Font Awesome          |
@@ -321,7 +311,7 @@ sudo reboot
 | `SUPER + R`             | Reload QuickShell             |
 | `SUPER + SHIFT + R`     | Reload Hyprland              |
 
-### Apps submap — `SUPER + A`
+### Apps submap (`SUPER + A`)
 
 | Key        | Action                          |
 | ---------- | -------------------------------- |
@@ -335,7 +325,7 @@ sudo reboot
 | `G`        | Calendar                           |
 | `Escape` / `Return` | Exit submap              |
 
-### Screenshots submap — `SUPER + T`
+### Screenshots submap (`SUPER + T`)
 
 | Key                  | Action                       |
 | --------------------- | ------------------------------ |
@@ -403,7 +393,7 @@ Theming requires changes in multiple locations:
 <details>
 <summary><b>Can I use these dotfiles on other distributions?</b></summary>
 
-The full setup — installer plus the whole config set — is built and tested for **Arch-based distributions with Hyprland**. That said, every config in `config/` is a plain dotfile, so individual pieces (Ghostty, Yazi, btop, Starship, Neovim, etc.) can be copied and used on any distro or window manager, Hyprland-independent ones especially.
+The full setup (installer plus the whole config set) is built and tested for **Arch-based distributions with Hyprland**. That said, every config in `config/` is a plain dotfile, so individual pieces (Ghostty, Yazi, btop, Starship, Neovim, etc.) can be copied and used on any distro or window manager, Hyprland-independent ones especially.
 
 -   Installation script only works on Arch-based systems (uses `pacman` and `paru`)
 -   Hyprland-specific configs require Wayland + Hyprland
