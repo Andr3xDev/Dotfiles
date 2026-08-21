@@ -42,7 +42,7 @@
         {
           "identitySerial": "LG Display|0x0742",
           "alias": "laptop",
-          "mode": "1920x1080@60.018",
+          "mode": "1920x1080@144",
           "position": "-1640x-153",
           "scale": 1.25,
           "transform": 0,

@@ -19,5 +19,4 @@ return {
     { "<leader>gf", "<cmd>LazyGitCurrentFile<cr>",       desc = "LazyGit current file" },
     { "<leader>gl", "<cmd>LazyGitFilterCurrentFile<cr>", desc = "LazyGit log (current file)" },
   },
-  opts = {},
 }
