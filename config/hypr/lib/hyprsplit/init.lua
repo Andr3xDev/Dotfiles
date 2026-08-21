@@ -1,3 +1,8 @@
+-- ---------------------------------------------------------------------------
+-- Hyprsplit
+-- Assigns per-monitor workspace ranges so each monitor gets its own set
+-- ---------------------------------------------------------------------------
+
 ---@class Hyprsplit
 ---@field protected _config Hyprsplit.Config
 ---@field protected monitor_priority_list string[]

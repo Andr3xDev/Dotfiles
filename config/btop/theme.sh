@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Btop Theme Switcher
+# Applies the themed btop color scheme by symlinking the selected theme file
+# ---------------------------------------------------------------------------
+
 CONFIG_DIR="${HOME}/.config/btop"
 THEME="${1}"
 

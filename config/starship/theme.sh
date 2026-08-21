@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Starship Theme Switcher
+# Applies the themed prompt config by symlinking the selected starship.toml
+# ---------------------------------------------------------------------------
+
 THEME=$1
 CONFIG_DIR="$HOME/.config/starship"
 

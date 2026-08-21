@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Master script to apply theme across all applications
-# Usage: ./apply-theme.sh <theme-name>
-# Theme names: abysal-obsidian, abysal-marble
+# ---------------------------------------------------------------------------
+# Apply Theme
+# Master script that applies a theme (abysal-obsidian, abysal-marble) across all applications
+# ---------------------------------------------------------------------------
+
 THEME="$1"
 
 source "${HOME}/.config/scripts/logger.sh"

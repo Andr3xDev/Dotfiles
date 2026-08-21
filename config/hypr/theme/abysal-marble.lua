@@ -1,4 +1,8 @@
+-- ---------------------------------------------------------------------------
 -- Abysal Marble
+-- Color palette and UI tokens for the Abysal Marble theme
+-- ---------------------------------------------------------------------------
+
 return {
 	-- Base colors
 	base    = "rgb(f0f3f4)", -- main_background

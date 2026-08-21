@@ -1,3 +1,8 @@
+-- ---------------------------------------------------------------------------
+-- Hyprswap
+-- Swaps workspace ranges between two monitors while preserving assignments
+-- ---------------------------------------------------------------------------
+
 local hs = require("lib.hyprsplit")
 
 ---@class Hyprswap

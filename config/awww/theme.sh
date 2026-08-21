@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Wallpaper Theme Switcher
+# Applies the themed wallpaper across all connected monitors via swww
+# ---------------------------------------------------------------------------
+
 THEME="$1"
 WALLPAPER_DIR="$HOME/.config/wallpapers"
 MONITORS=$(hyprctl monitors | grep -oP 'Monitor \K[^\s]+')

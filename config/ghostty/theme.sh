@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Ghostty Theme Switcher
+# Applies the themed color scheme by updating the theme setting in config
+# ---------------------------------------------------------------------------
+
 INPUT_NAME="$1"
 CONFIG_FILE="${HOME}/.config/ghostty/config"
 

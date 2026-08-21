@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Hyprland Theme Switcher
+# Applies the themed Hyprlock and Hyprland color configs via symlinks
+# ---------------------------------------------------------------------------
+
 HYPR_DIR="$HOME/.config/hypr/theme/"
 THEME="$1"
 

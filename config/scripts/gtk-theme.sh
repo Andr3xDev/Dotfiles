@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# GTK Theme Switcher
+# Applies the given GTK theme variant to the running session
+# ---------------------------------------------------------------------------
+
 source "${HOME}/.config/scripts/logger.sh"
 log INFO "-------------------------------"
 log INFO "Applying theme: ${1}"

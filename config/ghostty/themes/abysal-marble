@@ -1,3 +1,8 @@
+# ---------------------------------------------------------------------------
+# Abysal Marble
+# Ghostty terminal color scheme for the Abysal Marble theme
+# ---------------------------------------------------------------------------
+
 # General stuff
 background = #F0F3F4
 foreground = #0D1518

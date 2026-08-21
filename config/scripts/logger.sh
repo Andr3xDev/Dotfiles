@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Import this script in any of your other scripts to enable logging functionality.
-# It will create a log file for each script that sources it, and log messages with 
-# timestamps and levels.
+# ---------------------------------------------------------------------------
+# Logger
+# Provides level-based logging with per-script log files and error trapping
+# ---------------------------------------------------------------------------
 
 LOG_DIR="${HOME}/.config/logs"
 mkdir -p "$LOG_DIR"

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# ---------------------------------------------------------------------------
+# Fastfetch Theme Switcher
+# Applies the themed fastfetch config by swapping the active jsonc file
+# ---------------------------------------------------------------------------
+
 BASE_DIR="$HOME/.config/fastfetch"
 THEMES_DIR="$BASE_DIR/themes"
 TARGET="$BASE_DIR/config.jsonc"

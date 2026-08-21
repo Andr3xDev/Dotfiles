@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Spotify Theme Switcher
+# Applies the matching Spicetify color scheme for the given theme
+# ---------------------------------------------------------------------------
+
 THEME="$1"
 
 source "${HOME}/.config/scripts/logger.sh"

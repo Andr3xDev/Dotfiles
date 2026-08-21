@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ---------------------------------------------------------------------------
+# Dunst Theme Switcher
+# Applies the themed dunst notification style to the active dunstrc
+# ---------------------------------------------------------------------------
+
 THEME_NAME=$1
 THEME_PATH="$HOME/.config/dunst/themes/${THEME_NAME}.conf"
 CONFIG_PATH="$HOME/.config/dunst/dunstrc"
