@@ -289,6 +289,17 @@ sudo systemctl enable NetworkManager bluetooth
 sudo reboot
 ```
 
+### Configuration Synchronization
+
+Requires `rsync`. Run from repository root:
+
+```bash
+./scripts/sync-config.sh pull  # ~/.config/ → config/
+./scripts/sync-config.sh push  # config/ → ~/.config/
+```
+
+> **Warning:** Uses `rsync --archive --delete`; destination becomes exact copy of source, and extra destination files are deleted. No backups are made. Script requires an interactive TTY and literal `yes` confirmation before syncing.
+
 <br>
 <br>
 
