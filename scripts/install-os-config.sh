@@ -23,7 +23,7 @@ fi
 mkdir -p "$HOME/.config"
 
 # Copy each config directory
-for config in btop dunst fastfetch ghostty gtk-3.0 gtk-4.0 hypr kitty kotofetch nvim nwg-look quickshell rofi starship startpage swww tmux xsettingsd yazi; do
+for config in btop dunst fastfetch ghostty gtk-3.0 gtk-4.0 hypr kitty kotofetch lazygit nvim nwg-look quickshell rofi satty scripts starship startpage swww systemd tmux xsettingsd yazi; do
     if [ -d "$CONFIG_SRC/$config" ]; then
         print_message "Installing $config config..."
         cp -r "$CONFIG_SRC/$config" "$HOME/.config/"
@@ -41,28 +41,4 @@ if [ -d "$CONFIG_SRC/wallpapers" ]; then
     cp -r "$CONFIG_SRC/wallpapers" "$HOME/.config/"
 fi
 
-# Enable services
-print_message "Enabling system services..."
-
-# NetworkManager
-if pacman -Q networkmanager &>/dev/null; then
-    sudo systemctl enable NetworkManager
-fi
-
-# Bluetooth
-if pacman -Q bluez &>/dev/null; then
-    sudo systemctl enable bluetooth
-fi
-
-# Ly display manager
-if pacman -Q ly &>/dev/null; then
-    sudo systemctl enable ly.service
-fi
-
-# Docker
-if pacman -Q docker &>/dev/null; then
-    sudo systemctl enable docker
-fi
-
-print_success "Services enabled"
 print_success "Dotfiles installed successfully"
