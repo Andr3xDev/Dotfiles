@@ -27,6 +27,11 @@ if pacman -Q docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
+# NVIDIA suspend/resume (laptop power management)
+if pacman -Q nvidia-open-dkms &>/dev/null; then
+    sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
+fi
+
 # Wallserver (user-level)
 if [ -f "$HOME/.config/systemd/user/wallserver.service" ]; then
     systemctl --user enable wallserver.service
