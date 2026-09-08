@@ -41,16 +41,20 @@ fi
     exit 1
 }
 
+# Only these dirs/files are managed by this repo — keep in sync with scripts/install-os-config.sh
+MANAGED_DIRS=(btop dunst fastfetch ghostty gtk-3.0 gtk-4.0 hypr kitty kotofetch lazygit nvim nwg-look quickshell rofi satty scripts startpage swww systemd tmux xsettingsd yazi wallpapers)
+MANAGED_FILES=(starship.toml)
+
 if [[ "$1" == "pull" ]]; then
-    SOURCE="$LIVE_CONFIG"
-    DESTINATION="$REPO_CONFIG"
+    SRC_BASE="$LIVE_CONFIG"
+    DST_BASE="$REPO_CONFIG"
 else
-    SOURCE="$REPO_CONFIG"
-    DESTINATION="$LIVE_CONFIG"
+    SRC_BASE="$REPO_CONFIG"
+    DST_BASE="$LIVE_CONFIG"
 fi
 
-[[ -d "$SOURCE" ]] || {
-    echo "Error: source directory not found: $SOURCE" >&2
+[[ -d "$SRC_BASE" ]] || {
+    echo "Error: source directory not found: $SRC_BASE" >&2
     exit 1
 }
 
@@ -59,13 +63,30 @@ fi
     exit 1
 }
 
-echo "Source:      $SOURCE/"
-echo "Destination: $DESTINATION/"
-echo "Warning: destination will exactly match source; extra files will be deleted."
+echo "Source:      $SRC_BASE/ (managed paths only)"
+echo "Destination: $DST_BASE/"
+echo "Managed dirs:  ${MANAGED_DIRS[*]}"
+echo "Managed files: ${MANAGED_FILES[*]}"
+echo "Warning: each managed path will exactly match source; extra files inside those paths will be deleted. Unmanaged paths are left untouched."
 read -r -p "Type yes to continue: " confirmation
 [[ "$confirmation" == "yes" ]] || {
     echo "Sync cancelled."
     exit 1
 }
 
-rsync --archive --delete -- "$SOURCE/" "$DESTINATION/"
+mkdir -p "$DST_BASE"
+
+for dir in "${MANAGED_DIRS[@]}"; do
+    if [[ -d "$SRC_BASE/$dir" ]]; then
+        mkdir -p "$DST_BASE/$dir"
+        rsync --archive --delete -- "$SRC_BASE/$dir/" "$DST_BASE/$dir/"
+    fi
+done
+
+for file in "${MANAGED_FILES[@]}"; do
+    if [[ -f "$SRC_BASE/$file" ]]; then
+        cp -- "$SRC_BASE/$file" "$DST_BASE/$file"
+    fi
+done
+
+echo "Sync complete."
