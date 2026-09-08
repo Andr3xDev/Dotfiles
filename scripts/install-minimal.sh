@@ -39,6 +39,13 @@ install_gtk_themes() {
     fi
 }
 
+# Custom Firefox theme
+install_firefox_theme() {
+    if ask "Install custom Firefox theme (userChrome.css)?"; then
+        bash "$SCRIPT_DIR/install-firefox-theme.sh"
+    fi
+}
+
 # Copy dotfiles
 copy_dotfiles() {
     if ask "Copy configuration files (dotfiles)?"; then
@@ -77,6 +84,7 @@ main_installation() {
     print_message "════════════════════════════════════════"
 
     install_gtk_themes
+    install_firefox_theme
 
     print_message "════════════════════════════════════════"
     print_message "       FINAL CONFIGURATION              "

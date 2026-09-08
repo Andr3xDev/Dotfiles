@@ -21,8 +21,8 @@ install_intel() {
 # NVIDIA drivers
 install_nvidia() {
     print_warning "Make sure you have an NVIDIA GPU!"
-    print_message "Installing NVIDIA drivers..."
-    sudo pacman -S --needed --noconfirm nvidia-dkms lib32-nvidia-utils libva-nvidia-driver lib32-mesa
+    print_message "Installing NVIDIA drivers (open kernel modules)..."
+    sudo pacman -S --needed --noconfirm nvidia-open-dkms nvidia-utils lib32-nvidia-utils libva-nvidia-driver lib32-mesa
 }
 
 # Linux Zen kernel
